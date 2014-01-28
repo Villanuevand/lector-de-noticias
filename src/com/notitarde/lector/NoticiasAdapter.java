@@ -21,12 +21,19 @@ import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 
 
 public class NoticiasAdapter extends ArrayAdapter<Noticias>{
-	  ImageLoader imageLoader;
-      DisplayImageOptions options;
+	  
+	ImageLoader imageLoader;
+    DisplayImageOptions options;
       
-      
-      public NoticiasAdapter(Context ctx, int textViewResourceId, List<Noticias> sites) {
-              super(ctx, textViewResourceId, sites);
+ 
+    
+    
+    
+    public NoticiasAdapter(Context ctx, int textViewResourceId, List<Noticias> sites) {
+              
+	
+	super(ctx, textViewResourceId, sites);
+              
               
  //Setup the ImageLoader, we'll use this to display our images
       ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(ctx).build();

@@ -1,14 +1,9 @@
 package com.notitarde.lector;
 
 
-import java.io.FileNotFoundException;
-
 import com.notitarde.fragments.FragmentEconomia;
 import com.notitarde.fragments.FragmentPais;
 import com.notitarde.fragments.FragmentValencia;
-
-import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -25,9 +20,10 @@ import android.view.Menu;
 public class MainActivity extends ActionBarActivity implements ActionBar.TabListener, OnPageChangeListener {
 
 	private ViewPager mViewPager;
-	static final String TAG ="Debug-Notitarde";
-	static final String URL_TITULARES ="";
-	static final String URL_VALENCIA ="";
+	static final String TAG ="Debug-Notitarde";	
+	
+	NoticiasAdapter nAdapter;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -118,21 +114,6 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 		
 	}
 	
-	private class NoticiasDownloadTask extends  AsyncTask<Void, Void,Void>
-	{
 
-		@Override
-		protected Void doInBackground(Void... params) {
-			try {
-				Downloader.DownloadFromUrl(URL_TITULARES, openFileOutput("StackSites.xml", Context.MODE_PRIVATE));
-				
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-				Log.e(TAG,"Error al descargar!");
-			}
-			return null;
-		}
-		
-	}
 
 }
