@@ -6,6 +6,7 @@
     <string name="hello_world">Hello world!</string>
 
     <string-array name="secciones">
+        <item>Titulares</item>
         <item>Valencia</item>
         <item>País</item>
         <item>Economía</item>
@@ -21,5 +22,7 @@
 
     <string name="fragment_valencia">Valencia fragment</string>
     <string name="fragment_pais">País fragment</string>
+    <string name="fragment_economia">Economia fragment</string>
+    <string name="imagenContent"> </string>
 
 </resources>

@@ -1,6 +1,14 @@
 package com.notitarde.lector;
 
 
+import java.io.FileNotFoundException;
+
+import com.notitarde.fragments.FragmentEconomia;
+import com.notitarde.fragments.FragmentPais;
+import com.notitarde.fragments.FragmentValencia;
+
+import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -17,6 +25,9 @@ import android.view.Menu;
 public class MainActivity extends ActionBarActivity implements ActionBar.TabListener, OnPageChangeListener {
 
 	private ViewPager mViewPager;
+	static final String TAG ="Debug-Notitarde";
+	static final String URL_TITULARES ="";
+	static final String URL_VALENCIA ="";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,17 +52,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 			Log.d("Tabs","Creado "+s);
 		}
 		
-//		Tab t = ab.newTab().setText("Valencia").setTabListener(this);
-//		ab.addTab(t);
-//		
-//		t = ab.newTab().setText("País").setTabListener(this);
-//		ab.addTab(t);
-//		
-//		t = ab.newTab().setText("Deportes").setTabListener(this);
-//		ab.addTab(t);
-//		
-//		t = ab.newTab().setText("Sucesos").setTabListener(this);
-//		ab.addTab(t);
+		
 	}
 
 	@Override
@@ -70,16 +71,17 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 		public Fragment getItem(int arg0) {
 			switch (arg0) {
 	            case 0: 
-	                return new ValenciaFragment();
+	                return new FragmentValencia();
 	            case 1:
-	                return new PaisFragment() ;
-	               
+	                return new FragmentPais() ;
+	            case 2:
+	            	return new FragmentEconomia();
 	            default:
 	            	return null;
 			}
 		}
 		public int getCount() {
-			return 2;
+			return 3;
 		}
 
 
@@ -113,6 +115,23 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 
 	@Override
 	public void onTabUnselected(Tab tab, FragmentTransaction ft) {		
+		
+	}
+	
+	private class NoticiasDownloadTask extends  AsyncTask<Void, Void,Void>
+	{
+
+		@Override
+		protected Void doInBackground(Void... params) {
+			try {
+				Downloader.DownloadFromUrl(URL_TITULARES, openFileOutput("StackSites.xml", Context.MODE_PRIVATE));
+				
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+				Log.e(TAG,"Error al descargar!");
+			}
+			return null;
+		}
 		
 	}
 
