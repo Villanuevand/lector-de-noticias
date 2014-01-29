@@ -19,10 +19,11 @@
         <item>Institucionales</item>
         <item>Sociales</item>
     </string-array>
-
+	<string name="fragment_titulares">Titulares fragment</string>
     <string name="fragment_valencia">Valencia fragment</string>
     <string name="fragment_pais">País fragment</string>
-    <string name="fragment_economia">Economia fragment</string>
-    <string name="imagenContent"> </string>
+    <string name="fragment_economia">Economia fragment</string>    
+    <string name="imagenContent"></string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

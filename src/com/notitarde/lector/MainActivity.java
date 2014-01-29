@@ -3,6 +3,7 @@ package com.notitarde.lector;
 
 import com.notitarde.fragments.FragmentEconomia;
 import com.notitarde.fragments.FragmentPais;
+import com.notitarde.fragments.FragmentTitulares;
 import com.notitarde.fragments.FragmentValencia;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -67,17 +68,19 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 		public Fragment getItem(int arg0) {
 			switch (arg0) {
 	            case 0: 
-	                return new FragmentValencia();
+	                return new FragmentTitulares();
 	            case 1:
-	                return new FragmentPais() ;
+	            	return new FragmentValencia();	                
 	            case 2:
+	            	return new FragmentPais() ;	            	
+	            case 3:
 	            	return new FragmentEconomia();
 	            default:
 	            	return null;
 			}
 		}
 		public int getCount() {
-			return 3;
+			return 4;
 		}
 
 

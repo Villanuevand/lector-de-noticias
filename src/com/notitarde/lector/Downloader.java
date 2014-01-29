@@ -81,7 +81,7 @@ public class Downloader {
                                     + ((System.currentTimeMillis() - startTime))
                                     + " milisec");
             } catch (IOException e) {
-                    Log.d(myTag, "Error: " + e);
+                    Log.e(myTag, "Error: " + e);
             }
     }
 }
