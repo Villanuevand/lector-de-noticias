@@ -8,8 +8,11 @@ import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import com.notitarde.fragments.Global;
+
 
 import android.content.Context;
+import android.util.Log;
 
 public class NoticiasXmlPullParser {
 
@@ -21,7 +24,14 @@ public class NoticiasXmlPullParser {
 	static final String KEY_IMAGEN_URL = "imagen";
 	static final String KEY_URL = "url";
 	
-	public static List<Noticias> getNoticiasFromFile(Context ctx){
+	/**
+	 * Parsear archivo XML donde se encuentra la información a mostrar.
+	 * 
+	 * @param ctx - Contexto de la actividad
+	 * @param xml - Nombre del archivo xml a parsear
+	 * @return
+	 */
+	public static List<Noticias> getNoticiasFromFile(Context ctx, String xml){
 		
 //		Lista de noticias que será retornada
 		List<Noticias> ListadoNoticias;
@@ -39,7 +49,8 @@ public class NoticiasXmlPullParser {
               XmlPullParser xpp = factory.newPullParser();
               
               // Open up InputStream and Reader of our file.
-              FileInputStream fis = ctx.openFileInput("Noticias.xml");
+              FileInputStream fis = ctx.openFileInput(xml);
+              Log.d(Global.TAG,fis.toString());
               BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
               // point the parser to our file.

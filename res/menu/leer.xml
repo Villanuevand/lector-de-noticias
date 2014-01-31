@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:notitarde="http://schemas.android.com/apk/res-auto" >
+
+    <item
+        android:id="@+id/action_Notasettings"
+        android:orderInCategory="100"
+        notitarde:showAsAction="always"
+        android:title="@string/action_settings"
+        android:icon="@drawable/ic_action_overflow"/>
+    
+    <item android:id="@+id/action_Notashare"
+          notitarde:showAsAction="always"
+          android:title="@string/action_share"
+          android:icon="@drawable/ic_action_share"
+        />
+
+</menu>

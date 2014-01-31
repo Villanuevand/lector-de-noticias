@@ -1,12 +1,12 @@
 package com.notitarde.fragments;
 
-
 import com.notitarde.lector.Downloader;
+import com.notitarde.lector.LeerActivity;
 import com.notitarde.lector.NoticiasAdapter;
 import com.notitarde.lector.NoticiasXmlPullParser;
 import com.notitarde.lector.R;
-
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
@@ -14,7 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-//import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 
 /**
@@ -23,14 +23,9 @@ import android.view.ViewGroup;
  */
 public class FragmentValencia extends ListFragment {
 
-	final static String URL ="https://googledrive.com/host/0ByoQ8u8IrvxGcVdVbXgzbVNMTFk/noticias.xml";
-	NoticiasAdapter nAdapter;
-	
-//	private String[] sistemas = { "Android", "Ubuntu", "Mac OSX", "Windows",
-//            "Solaris", "Windows 8", "Ubuntu 12.04", "Windows Phone",
-//            "Windows 7", "Kubuntu", "Ubuntu 12.10" };
-//	
-	static final String TAG ="Debug-Notitarde";	
+	private NoticiasAdapter nAdapter;
+	private Global g;
+
 	
 	public FragmentValencia() {
 		// Required empty public constructor
@@ -44,30 +39,40 @@ public class FragmentValencia extends ListFragment {
 
 	}
 
+	
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		// Establecemos el Adapter a la Lista del Fragment
-		//setListAdapter(new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1, sistemas));
-		try {
-			Log.d("Notitarde"," OnCreate");
-			NoticiasDownloadTask dn =  new NoticiasDownloadTask();
-			Log.d("Notitarde","Descarga inicializada");
-			dn.execute();
-			Log.d("Notitarde","Descarga ejecutada");
-			nAdapter = new NoticiasAdapter(getActivity(), -1, NoticiasXmlPullParser.getNoticiasFromFile(getActivity().getBaseContext()));
-			Log.d("Notitarde","llenado list");
-			setListAdapter(nAdapter);
-			Log.d("Notitarde","List llenado");
-		} catch (Exception e) {
-			Log.d("Notitarde","Excepcion onCreate: " +e.toString());
+	public void onActivityCreated(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onActivityCreated(savedInstanceState);
+		g = new Global(getActivity());
+		Global.HAY_INTERNET = g.conexionInternet();
+		if(Global.HAY_INTERNET){
+			NoticiasDownloadTask dn = new NoticiasDownloadTask();
+			dn.execute();			
+		}else{
+			nAdapter = new NoticiasAdapter(getActivity(), -1, NoticiasXmlPullParser.getNoticiasFromFile(getActivity(),Global.XML_VALENCIA));
 		}
-		
-		
-		
-		   
-		//setListAdapter(new NoticiasAdapter(getActivity(), -1, NoticiasXmlPullParser.getNoticiasFromFile(getActivity())));
+			
 	}
+
+
+	@Override
+	public void onListItemClick(ListView l, View v, int position, long id) {
+		// TODO Auto-generated method stub
+		super.onListItemClick(l, v, position, id);
+		Intent i = new Intent(getActivity().getApplicationContext(),LeerActivity.class);
+		i.putExtra("titulo", nAdapter.getItem(position).getTitulo());
+		i.putExtra("seccion",nAdapter.getItem(position).getSeccion());
+		i.putExtra("imagen", nAdapter.getItem(position).getImgUrl());
+		i.putExtra("descripcion", nAdapter.getItem(position).getDescripcion());	
+		i.putExtra("fecha",nAdapter.getItem(position).getFecha());
+		i.putExtra("url",nAdapter.getItem(position).getUrl());
+		startActivity(i);
+		
+	}
+
+
+
 
 	private class NoticiasDownloadTask extends AsyncTask<Void, Void, Void>
 	{
@@ -75,11 +80,11 @@ public class FragmentValencia extends ListFragment {
 		@Override
 		protected Void doInBackground(Void... params) {
 			try {
-				Log.d("Notitarde"," metodo doInBackgroud");
-				Downloader.DownloadFromUrl(URL, getActivity().openFileOutput("Noticias.xml", Context.MODE_PRIVATE));		
+				Log.d(Global.TAG," Metodo doInBackgroud");
+				Downloader.DownloadFromUrl(Global.URL+Global.XML_VALENCIA, getActivity().openFileOutput(Global.XML_VALENCIA,Context.MODE_PRIVATE));		
 			} catch (Exception e) {
 				// TODO: handle exception
-				Log.d("Notitarde","Excepcion doInBackground: " +e.toString());
+				Log.d(Global.TAG,"Excepcion doInBackground: " +e.toString());
 						
 			}
 				
@@ -88,13 +93,10 @@ public class FragmentValencia extends ListFragment {
 
 		@Override
 		protected void onPostExecute(Void result) {			
-			nAdapter = new NoticiasAdapter(getActivity().getBaseContext(), -1, NoticiasXmlPullParser.getNoticiasFromFile(getActivity().getBaseContext()));
+			nAdapter = new NoticiasAdapter(getActivity().getBaseContext(), -1, NoticiasXmlPullParser.getNoticiasFromFile(getActivity().getBaseContext(),"valencia.xml"));
 			setListAdapter(nAdapter);
 			Log.d("Notitarde","Metodo onPOstExecute");
 			
-		}
-		
-		
-		
+		}				
 	}
 }

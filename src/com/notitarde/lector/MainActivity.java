@@ -1,8 +1,16 @@
 package com.notitarde.lector;
 
 
+import com.notitarde.fragments.FragmentDeportes;
 import com.notitarde.fragments.FragmentEconomia;
+import com.notitarde.fragments.FragmentEspectaculos;
+import com.notitarde.fragments.FragmentInstitucionales;
+import com.notitarde.fragments.FragmentInternacional;
+import com.notitarde.fragments.FragmentLaCosta;
 import com.notitarde.fragments.FragmentPais;
+import com.notitarde.fragments.FragmentRegiones;
+import com.notitarde.fragments.FragmentSociales;
+import com.notitarde.fragments.FragmentSucesos;
 import com.notitarde.fragments.FragmentTitulares;
 import com.notitarde.fragments.FragmentValencia;
 import android.os.Bundle;
@@ -17,6 +25,8 @@ import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity implements ActionBar.TabListener, OnPageChangeListener {
 
@@ -29,7 +39,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.swipe_tab);
+		setContentView(R.layout.swipe_tab);		
 		
 		PagerAdapter pAdapter = new PagerAdapter(getSupportFragmentManager());
 		mViewPager = (ViewPager) findViewById(R.id.pager);
@@ -59,7 +69,21 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 		return true;
 	}
 	
-//	Adpatador de Páginas 
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		switch (item.getItemId()) {
+		case R.id.action_mainSettings:
+			Toast.makeText(getApplicationContext(), "Menu", Toast.LENGTH_SHORT).show();
+			return true;			
+		default:
+			break;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+	//	Adpatador de Páginas 
 	public class PagerAdapter extends FragmentPagerAdapter {
 
 		public PagerAdapter(FragmentManager fm) {
@@ -75,12 +99,28 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 	            	return new FragmentPais() ;	            	
 	            case 3:
 	            	return new FragmentEconomia();
+	            case 4:
+	            	return new FragmentInternacional();
+	            case 5:
+	            	return new FragmentDeportes();
+	            case 6:
+	            	return new FragmentSucesos();
+	            case 7:
+	            	return new FragmentLaCosta();
+	            case 8:
+	            	return new FragmentRegiones();
+	            case 9:
+	            	return new FragmentEspectaculos();
+	            case 10:
+	            	return new FragmentInstitucionales();
+	            case 11:
+	            	return new FragmentSociales();	            
 	            default:
 	            	return null;
 			}
 		}
 		public int getCount() {
-			return 4;
+			return 12;
 		}
 
 
