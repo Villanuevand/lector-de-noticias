@@ -36,11 +36,6 @@
             <meta-data
                 android:name="android.support.UI_OPTIONS"
                 android:value="splitActionBarWhenNarrow" />
-        </activity>
-        <activity
-            android:name="com.notitarde.lector.ConfiguracionActivity"
-            android:label="@string/title_activity_configuracion" >
-        </activity>
+        </activity>        
     </application>
-
 </manifest>

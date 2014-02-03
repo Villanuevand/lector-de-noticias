@@ -1,10 +1,12 @@
 package com.notitarde.fragments;
 
 import com.notitarde.lector.Downloader;
+import com.notitarde.lector.LeerActivity;
 import com.notitarde.lector.NoticiasAdapter;
 import com.notitarde.lector.NoticiasXmlPullParser;
 import com.notitarde.lector.R;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
@@ -12,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 /**
  * A simple {@link android.support.v4.app.Fragment} subclass.
@@ -50,7 +53,21 @@ public class FragmentEspectaculos extends ListFragment {
 		
 	}
 	
-
+	@Override
+	public void onListItemClick(ListView l, View v, int position, long id) {
+		// TODO Auto-generated method stub
+		super.onListItemClick(l, v, position, id);
+		Intent i = new Intent(getActivity().getApplicationContext(),LeerActivity.class);
+		i.putExtra("titulo", nAdapter.getItem(position).getTitulo());
+		i.putExtra("seccion",nAdapter.getItem(position).getSeccion());
+		i.putExtra("imagen", nAdapter.getItem(position).getImgUrl());
+		i.putExtra("descripcion", nAdapter.getItem(position).getDescripcion());	
+		i.putExtra("fecha",nAdapter.getItem(position).getFecha());
+		i.putExtra("url",nAdapter.getItem(position).getUrl());
+		startActivity(i);
+		
+	}
+	
 	private class NoticiasDownloadTask extends AsyncTask<Void, Void, Void>
 	{
 		@Override
