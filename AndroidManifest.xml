@@ -28,7 +28,7 @@
         </activity>
         <activity
             android:name="com.notitarde.lector.LeerActivity"
-            android:label="@string/title_activity_leer"
+            android:label="@string/app_name"
             android:uiOptions="splitActionBarWhenNarrow" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -38,4 +38,5 @@
                 android:value="splitActionBarWhenNarrow" />
         </activity>        
     </application>
+
 </manifest>
