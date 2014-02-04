@@ -9,7 +9,7 @@
         android:icon="@drawable/ic_action_overflow"/>
     
     <item android:id="@+id/action_Notashare"
-          notitarde:showAsAction="always"
+          notitarde:showAsAction="ifRoom"
           android:title="@string/action_share"
           android:icon="@drawable/ic_action_share"
         />

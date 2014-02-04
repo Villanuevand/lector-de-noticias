@@ -6,7 +6,8 @@
     <string name="action_settings">Settings</string>
     <string name="action_share">Compartir</string>
     <string name="action_fuente">Fuente</string>
-        
+
+      
 	<!-- Arreglo de Secciones -->
     <string-array name="secciones">
         <item>Titulares</item>
@@ -21,6 +22,13 @@
         <item>Espectáculos</item>
         <item>Institucionales</item>
         <item>Sociales</item>
+    </string-array>    
+    <!--  Arreglos de Tamaños de Fuente -->
+    <string-array name="tamanofuente">
+        <item>Normal</item>
+        <item>Mediana</item>
+        <item>Grande</item>
+        <item>Muy Grande</item>
     </string-array>
     
     <string-array name="tamanofuente">
@@ -30,14 +38,9 @@
         <item>Muy Grande</item>
     </string-array>
 	
-    <string name="hello_world">Hello world!</string>
-    <string name="fragment_titulares">Titulares fragment</string>
-    <string name="fragment_valencia">Valencia fragment</string>
-    <string name="fragment_pais">País fragment</string>
-    <string name="fragment_economia">Economia fragment</string>
-    <string name="imagenContent"></string>
-    <string name="title_activity_leer">Leer</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_world">Hello world!</string>    
+    <string name="imagenContent"></string>    
+    
     
     <!-- String Nota -->
     <string name="nota_titulo">Titulo Nota</string>
