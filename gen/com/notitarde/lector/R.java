@@ -20,6 +20,7 @@ public final class R {
         /**  Arreglo de Secciones 
          */
         public static final int secciones=0x7f0c0000;
+        public static final int tamanofuente=0x7f0c0001;
     }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
@@ -990,6 +991,7 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020059;
     }
     public static final class id {
+        public static final int action_Notafuente=0x7f050049;
         public static final int action_Notasettings=0x7f050047;
         public static final int action_Notashare=0x7f050048;
         public static final int action_bar=0x7f05001c;
@@ -1000,7 +1002,7 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f050023;
         public static final int action_bar_title=0x7f050022;
         public static final int action_context_bar=0x7f05001d;
-        public static final int action_mainSettings=0x7f050049;
+        public static final int action_mainSettings=0x7f05004a;
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;

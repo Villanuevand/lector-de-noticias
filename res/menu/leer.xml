@@ -13,5 +13,10 @@
           android:title="@string/action_share"
           android:icon="@drawable/ic_action_share"
         />
+    
+        <item android:id="@+id/action_Notafuente"
+          notitarde:showAsAction="always"
+          android:title="@string/action_fuente"         
+        />
 
 </menu>

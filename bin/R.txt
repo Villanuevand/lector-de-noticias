@@ -5,6 +5,7 @@ int anim abc_slide_in_top 0x7f040003
 int anim abc_slide_out_bottom 0x7f040004
 int anim abc_slide_out_top 0x7f040005
 int array secciones 0x7f0c0000
+int array tamanofuente 0x7f0c0001
 int attr actionBarDivider 0x7f01000b
 int attr actionBarItemBackground 0x7f01000c
 int attr actionBarSize 0x7f01000a
@@ -230,6 +231,7 @@ int drawable abc_textfield_searchview_right_holo_light 0x7f020056
 int drawable ic_action_overflow 0x7f020057
 int drawable ic_action_share 0x7f020058
 int drawable ic_launcher 0x7f020059
+int id action_Notafuente 0x7f050049
 int id action_Notasettings 0x7f050047
 int id action_Notashare 0x7f050048
 int id action_bar 0x7f05001c
@@ -240,7 +242,7 @@ int id action_bar_root 0x7f05001a
 int id action_bar_subtitle 0x7f050023
 int id action_bar_title 0x7f050022
 int id action_context_bar 0x7f05001d
-int id action_mainSettings 0x7f050049
+int id action_mainSettings 0x7f05004a
 int id action_menu_divider 0x7f050016
 int id action_menu_presenter 0x7f050017
 int id action_mode_close_button 0x7f050024
