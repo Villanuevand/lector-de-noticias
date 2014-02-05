@@ -4,19 +4,25 @@
     <item
         android:id="@+id/action_Notasettings"
         android:orderInCategory="100"
-        notitarde:showAsAction="always"
+        notitarde:showAsAction="ifRoom|withText"
         android:title="@string/action_settings"
         android:icon="@drawable/ic_action_overflow"/>
     
     <item android:id="@+id/action_Notashare"
-          notitarde:showAsAction="ifRoom"
+          notitarde:showAsAction="ifRoom|withText"          
           android:title="@string/action_share"
           android:icon="@drawable/ic_action_share"
         />
     
-        <item android:id="@+id/action_Notafuente"
-          notitarde:showAsAction="always"
+	<item android:id="@+id/action_Notafuente"
+          notitarde:showAsAction="ifRoom|withText"
           android:title="@string/action_fuente"         
+    />
+    <item android:id="@+id/action_Notaemail"
+        notitarde:showAsAction="ifRoom|withText"
+        android:icon="@drawable/ic_action_new_email"
+        android:title="@string/action_email"
         />
+            
 
 </menu>

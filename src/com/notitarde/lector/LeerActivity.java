@@ -6,6 +6,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 import android.os.Bundle;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -19,9 +20,9 @@ import android.widget.Toast;
 
 public class LeerActivity extends ActionBarActivity implements DialogFuente.FragmentComunicador{
 
-	TextView titulo;
-	TextView seccion;		
-	TextView descripcion;
+	private TextView titulo;
+	private TextView seccion;		
+	private TextView descripcion;
 	Bundle b;
 	
 	@Override
@@ -47,7 +48,7 @@ public class LeerActivity extends ActionBarActivity implements DialogFuente.Frag
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.leer, menu);
+		getMenuInflater().inflate(R.menu.leer, menu);	
 		return true;
 	}
 	
@@ -59,10 +60,21 @@ public class LeerActivity extends ActionBarActivity implements DialogFuente.Frag
 			Toast.makeText(this, "menu", Toast.LENGTH_SHORT).show();
 			return true;
 		case R.id.action_Notashare:
-			Toast.makeText(this, "fuente", Toast.LENGTH_SHORT).show();
+			Intent i = new Intent();
+			i.setAction(Intent.ACTION_SEND);
+			i.putExtra(Intent.EXTRA_TEXT,b.getString("titulo")+"\n"+b.getString("url"));
+			i.setType("text/plain");
+			startActivity(Intent.createChooser(i, getResources().getText(R.string.action_share)));
 			return true;
 		case R.id.action_Notafuente:
 			mostrarDialog();
+			return true;
+		case R.id.action_Notaemail:
+			Intent email = new Intent();
+			email.putExtra(Intent.EXTRA_SUBJECT,b.getString("titulo"));
+			email.putExtra(Intent.EXTRA_TEXT,getResources().getString(R.string.email_mensaje)+"\n"+b.getString("titulo")+"\n"+b.getString("url"));
+			email.setType("message/rfc822");
+			startActivity(Intent.createChooser(email, getResources().getString(R.string.email_titulo_dialog)));
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
@@ -70,11 +82,9 @@ public class LeerActivity extends ActionBarActivity implements DialogFuente.Frag
 		
 	}
 	
-	public void mostrarDialog(){
-		
-		DialogFuente dialogFuente = new DialogFuente();
-		dialogFuente.show(getSupportFragmentManager(),"Mi dialog de fuente");
-		
+	public void mostrarDialog(){				
+		DialogFuente dialogFuente = new DialogFuente();			
+		dialogFuente.show(getSupportFragmentManager(),"Mi dialog de fuente");		
 	}
 	
 	@Override

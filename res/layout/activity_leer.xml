@@ -37,13 +37,15 @@
 		        android:id="@+id/iv_imagenInternaNota"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:src="@drawable/abc_ab_stacked_transparent_dark_holo" />
+		        android:src="@drawable/abc_ab_stacked_transparent_dark_holo"
+		        android:contentDescription="@string/nota_imagen" />
 		
 		    <TextView
 		        android:id="@+id/tv_descripcionInternaNota"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"                   
-		        android:text="@string/nota_descripcion" />
+		        android:text="@string/nota_descripcion"
+		        android:textAlignment="textStart" />
 		        </LinearLayout>
         
     </ScrollView>

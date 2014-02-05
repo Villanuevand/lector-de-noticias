@@ -6,6 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="action_share">Compartir</string>
     <string name="action_fuente">Fuente</string>
+    <string name="action_email">Correo</string>
 
       
 	<!-- Arreglo de Secciones -->
@@ -31,12 +32,7 @@
         <item>Muy Grande</item>
     </string-array>
     
-    <string-array name="tamanofuente">
-        <item>Normal</item>
-        <item>Mediana</item>
-        <item>Grande</item>
-        <item>Muy Grande</item>
-    </string-array>
+
 	
     <string name="hello_world">Hello world!</string>    
     <string name="imagenContent"></string>    
@@ -47,5 +43,10 @@
     <string name="nota_seccion">Seccion</string>
     <string name="nota_imagen"> </string>
     <string name="nota_descripcion">Texto de la nota</string>
+    <string name="nota_info_compartir">Notitarde</string>
+    
+    <!-- String Enviar e-Mail -->
+    <string name="email_titulo_dialog">Enviar usando:</string>
+    <string name="email_mensaje">He encontrado un artículo en Notitarde que puede interesarte.</string>
 
 </resources>
