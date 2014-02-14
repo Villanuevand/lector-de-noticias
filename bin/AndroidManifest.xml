@@ -36,6 +36,10 @@
             <meta-data
                 android:name="android.support.UI_OPTIONS"
                 android:value="splitActionBarWhenNarrow" />
+        </activity>
+        <activity
+            android:name="com.notitarde.lector.PreferenciasActivity"
+            android:label="@string/config_app_titulo" >
         </activity>        
     </application>
 

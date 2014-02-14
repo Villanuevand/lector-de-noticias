@@ -6,7 +6,9 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -28,24 +30,65 @@ public class LeerActivity extends ActionBarActivity implements DialogFuente.Frag
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_leer);	
+		setContentView(R.layout.activity_leer);		
 		titulo = (TextView) findViewById(R.id.tv_tituloInternaNota);
 		seccion = (TextView) findViewById(R.id.tv_seccionInternaNota);	
 		descripcion = (TextView) findViewById(R.id.tv_descripcionInternaNota);
 		b = getIntent().getExtras();		
 //		String url= b.getString("url");
+		setTamanoFuente();
 		titulo.setText(b.getString("titulo"));
 		seccion.setText(b.getString("seccion"));		
 		descripcion.setText(b.getString("descripcion"));		
-		getImageToDisplay(b.getString("imagen"));
-		
-		
+		getImageToDisplay(b.getString("imagen"));			
 		ActionBar ab = getSupportActionBar();
 		ab.setTitle(R.string.app_name);					
 		ab.setSubtitle(b.getString("seccion"));
 		ab.setDisplayHomeAsUpEnabled(true);
+	}	
+
+	private void setTamanoFuente() {
+		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		int opc = Integer.parseInt(sp.getString("PREF_FUENTE", "0"));
+		switch (opc) {
+		case 0:
+			tamanoNormal();
+		break;
+		case 1:				
+			tamanoMediano();
+			break;
+		case 2:
+			tamanoGrande();
+			break;
+		case 3:
+			tamanoMuyGrande();
+			break;
+		default:
+			break;
+		}
 	}
 
+	private void tamanoNormal(){
+		titulo.setTextSize(getResources().getDimension(R.dimen.texto_normal_titulo));
+		seccion.setTextSize(getResources().getDimension(R.dimen.texto_normal_seccion));
+		descripcion.setTextSize(getResources().getDimension(R.dimen.texto_normal_descripcion));
+	}
+	private void tamanoMediano(){
+		titulo.setTextSize(getResources().getDimension(R.dimen.texto_mediano_titulo));
+		seccion.setTextSize(getResources().getDimension(R.dimen.texto_mediano_seccion));
+		descripcion.setTextSize(getResources().getDimension(R.dimen.texto_mediano_descripcion));
+	}
+	private void tamanoGrande(){
+		titulo.setTextSize(getResources().getDimension(R.dimen.texto_grande_titulo));
+		seccion.setTextSize(getResources().getDimension(R.dimen.texto_grande_seccion));
+		descripcion.setTextSize(getResources().getDimension(R.dimen.texto_grande_descripcion));
+	}
+	private void tamanoMuyGrande(){	
+		titulo.setTextSize(getResources().getDimension(R.dimen.texto_muygrande_titulo));
+		seccion.setTextSize(getResources().getDimension(R.dimen.texto_muygrande_seccion));
+		descripcion.setTextSize(getResources().getDimension(R.dimen.texto_muygrande_descripcion));
+	};
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.leer, menu);	
@@ -60,36 +103,70 @@ public class LeerActivity extends ActionBarActivity implements DialogFuente.Frag
 			Toast.makeText(this, "menu", Toast.LENGTH_SHORT).show();
 			return true;
 		case R.id.action_Notashare:
-			Intent i = new Intent();
-			i.setAction(Intent.ACTION_SEND);
-			i.putExtra(Intent.EXTRA_TEXT,b.getString("titulo")+"\n"+b.getString("url"));
-			i.setType("text/plain");
-			startActivity(Intent.createChooser(i, getResources().getText(R.string.action_share)));
+			mostrarOpcionShare();			
 			return true;
 		case R.id.action_Notafuente:
 			mostrarDialog();
 			return true;
 		case R.id.action_Notaemail:
-			Intent email = new Intent();
-			email.putExtra(Intent.EXTRA_SUBJECT,b.getString("titulo"));
-			email.putExtra(Intent.EXTRA_TEXT,getResources().getString(R.string.email_mensaje)+"\n"+b.getString("titulo")+"\n"+b.getString("url"));
-			email.setType("message/rfc822");
-			startActivity(Intent.createChooser(email, getResources().getString(R.string.email_titulo_dialog)));
+			mostarOpcionMail();		
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
-		}
-		
+		}	
 	}
 	
+
+	@Override
+	protected void onResumeFragments() {
+		// TODO Auto-generated method stub
+		super.onResumeFragments();
+	}
+
+	private void mostarOpcionMail() {		
+		Intent email = new Intent();
+		email.putExtra(Intent.EXTRA_SUBJECT,b.getString("titulo"));
+		email.putExtra(Intent.EXTRA_TEXT,getResources().getString(R.string.email_mensaje)+"\n"+b.getString("titulo")+"\n"+b.getString("url"));
+		email.setType("message/rfc822");
+		startActivity(Intent.createChooser(email, getResources().getString(R.string.email_titulo_dialog)));
+	}
+
+	private void mostrarOpcionShare() {
+		Intent i = new Intent();
+		i.setAction(Intent.ACTION_SEND);
+		i.putExtra(Intent.EXTRA_TEXT,b.getString("titulo")+"\n"+b.getString("url"));
+		i.setType("text/plain");
+		startActivity(Intent.createChooser(i, getResources().getText(R.string.action_share)));		
+	}
+
 	public void mostrarDialog(){				
 		DialogFuente dialogFuente = new DialogFuente();			
 		dialogFuente.show(getSupportFragmentManager(),"Mi dialog de fuente");		
 	}
 	
 	@Override
-	public void tamanoFuente(int tamano) {	
-		descripcion.setTextSize((float)tamano);		
+	public void tamanoFuente(int tamano) {
+		try {
+			switch (tamano) {
+			case 0:
+				tamanoNormal();
+				break;
+			case 1:
+				tamanoMediano();
+				break;
+			case 2:
+				tamanoGrande();
+				break;
+			case 3:
+				tamanoMuyGrande();
+				break;
+			default:
+				break;
+			}
+
+		} catch (Exception e) {
+			Toast.makeText(getBaseContext(), R.string.error_fuente_tamano, Toast.LENGTH_SHORT).show();
+		}	
 	}
 
 	

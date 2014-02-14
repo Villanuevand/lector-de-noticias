@@ -3,6 +3,7 @@ package com.notitarde.fragments;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.widget.TextView;
 
 public class Global {
 
@@ -39,4 +40,5 @@ public class Global {
 		}
 		return false;
 	}
+	
 }

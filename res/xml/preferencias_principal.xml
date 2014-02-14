@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >  
+    <PreferenceCategory
+        android:title="@string/config_app_preferencias"
+        >
+      <ListPreference
+          android:key="PREF_FUENTE"
+          android:title="@string/config_prefs_titulo"
+          android:summary="@string/config_prefs_sumario" 
+          android:entries="@array/tamanofuente"
+          android:entryValues="@array/valores_tamanofuente"
+          />      
+    </PreferenceCategory>
+
+</PreferenceScreen>

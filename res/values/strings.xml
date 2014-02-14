@@ -45,8 +45,50 @@
     <string name="nota_descripcion">Texto de la nota</string>
     <string name="nota_info_compartir">Notitarde</string>
     
+    <!-- Tamaño Normal -->
+    <!-- Tamaño Mediano -->
+    <!-- Tamaño Grande -->
+    <!-- Tamaño Muy Grande -->
+    
     <!-- String Enviar e-Mail -->
     <string name="email_titulo_dialog">Enviar usando:</string>
     <string name="email_mensaje">He encontrado un artículo en Notitarde que puede interesarte.</string>
+    
+    <!-- String Configuraciones App -->
+    <string name="config_app_titulo">Configuración</string>
+    <string name="config_app_utilidades">Utilidades</string>
+    <string name="config_app_preferencias">Preferencias</string>
+    <string name="config_app_acerca">Acerca</string>
+    <string name="config_util_titulo">Llamanos</string>
+    <string name="config_util_sumario">Comunicate con nosotros</string>
+    <string name="config_prefs_titulo">Tamaño de Letra</string>
+    <string name="config_prefs_sumario">Establece un tamaño de letra en los artículos.</string>
+    <string-array name="sedes">
+        <item>Valencia</item>
+        <item>Caracas</item>
+        <item>Maracay</item>
+        <item>Puerto Cabello</item>
+    </string-array>    
+    <string-array name="sedes_numeros">
+        <item>02418501504</item>
+        <item>02129522668</item>
+        <item>02432328859</item>
+        <item>02418501504</item>
+    </string-array>
+    <string-array name="sedes_ubicacion">
+        <item>Av. Boyacá entre Navas Spínola y Flores.</item>
+        <item>Torre Forum, piso 2 oficina 2B Av. Las Mercedes con calle Guaicaipuro, Urb. El Rosal.</item>
+        <item>Edificio Torre Sindoni, entre Av. Bolívar Oeste y Miranda, piso 22, oficina 6.</item>
+        <item>Centro Comercial Consolidado, planta baja local Nº 5 Edif. A.</item>
+    </string-array>
+    <string-array name="valores_tamanofuente">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    
+    
 
 </resources>
+

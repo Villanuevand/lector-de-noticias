@@ -13,6 +13,7 @@ import com.notitarde.fragments.FragmentSociales;
 import com.notitarde.fragments.FragmentSucesos;
 import com.notitarde.fragments.FragmentTitulares;
 import com.notitarde.fragments.FragmentValencia;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -26,7 +27,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+//import android.widget.Toast;
+
 
 public class MainActivity extends ActionBarActivity implements ActionBar.TabListener, OnPageChangeListener {
 
@@ -39,8 +41,8 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.swipe_tab);		
 		
+		setContentView(R.layout.swipe_tab);				
 		PagerAdapter pAdapter = new PagerAdapter(getSupportFragmentManager());
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(pAdapter);
@@ -63,8 +65,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
+	public boolean onCreateOptionsMenu(Menu menu) {		
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
@@ -72,15 +73,19 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// TODO Auto-generated method stub
 		switch (item.getItemId()) {
 		case R.id.action_mainSettings:
-			Toast.makeText(getApplicationContext(), "Menu", Toast.LENGTH_SHORT).show();
+			InflarMenuOpciones();
 			return true;			
 		default:
 			break;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	//Inflador Opciones de Menú
+	private void InflarMenuOpciones() {
+		startActivity(new Intent(this,PreferenciasActivity.class));		
 	}
 
 	//	Adpatador de Páginas 

@@ -3,5 +3,19 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-
+    
+    <!-- Tamanio de Texto segun Opcion -->
+    <dimen name="texto_normal_titulo">20sp</dimen>
+    <dimen name="texto_normal_seccion">12sp</dimen>
+    <dimen name="texto_normal_descripcion">16sp</dimen>    
+    <dimen name="texto_mediano_titulo">24sp</dimen>
+    <dimen name="texto_mediano_seccion">14sp</dimen>
+    <dimen name="texto_mediano_descripcion">20sp</dimen>
+	<dimen name="texto_grande_titulo">26sp</dimen>
+	<dimen name="texto_grande_seccion">16sp</dimen>
+	<dimen name="texto_grande_descripcion">22sp</dimen>
+	<dimen name="texto_muygrande_titulo">28sp</dimen>
+	<dimen name="texto_muygrande_seccion">18sp</dimen>
+	<dimen name="texto_muygrande_descripcion">24sp</dimen>
 </resources>
+
