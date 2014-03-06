@@ -1,13 +1,11 @@
 package com.notitarde.fragments;
 
-import com.notitarde.lector.Downloader;
+
 import com.notitarde.lector.LeerActivity;
 import com.notitarde.lector.NoticiasAdapter;
 import com.notitarde.lector.NoticiasXmlPullParser;
 import com.notitarde.lector.R;
-import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
@@ -23,7 +21,6 @@ import android.widget.ListView;
 public class FragmentLaCosta extends ListFragment {
 
 	NoticiasAdapter nAdapter;
-	Global g;
 	
 	public FragmentLaCosta() {
 		// Required empty public constructor
@@ -36,24 +33,19 @@ public class FragmentLaCosta extends ListFragment {
 		return inflater.inflate(R.layout.fragment_la_costa, container,
 				false);
 	}
-	
-
+			
 	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {		
-		super.onActivityCreated(savedInstanceState);
-		g = new Global(getActivity());
-		Global.HAY_INTERNET = g.conexionInternet();
-		Log.d(Global.TAG + " - Hay Internet", Global.HAY_INTERNET.toString());
-		if(Global.HAY_INTERNET){			
-			NoticiasDownloadTask dn = new NoticiasDownloadTask();
-			dn.execute();
-		}else{
+	public void onViewCreated(View view, Bundle savedInstanceState) {		
+		super.onViewCreated(view, savedInstanceState);
+		try {
 			nAdapter = new NoticiasAdapter(getActivity(), -1, NoticiasXmlPullParser.getNoticiasFromFile(getActivity().getBaseContext(),Global.XML_LACOSTA));
-		}
-				
-		
+			setListAdapter(nAdapter);
+			Log.d(Global.TAG,"Fragment La Costa - Adaptador inflado OK");
+		} catch (Exception e) {
+			Log.e(Global.TAG,"Fragment La Costa - Error al inflar adaptador "+e);
+		}	
 	}
-	
+
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		// TODO Auto-generated method stub
@@ -69,27 +61,5 @@ public class FragmentLaCosta extends ListFragment {
 		
 	}
 	
-	private class NoticiasDownloadTask extends AsyncTask<Void, Void, Void>
-	{
-		@Override
-		protected Void doInBackground(Void... params) {
-			try {
-				Log.d(Global.TAG," Metodo doInBackgroud");
-				Downloader.DownloadFromUrl(Global.URL+Global.XML_LACOSTA, getActivity().openFileOutput(Global.XML_LACOSTA, Context.MODE_PRIVATE));		
-			} catch (Exception e) {
-				Log.d(Global.TAG,"Excepcion doInBackground: " +e.toString());					
-			}				
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute(Void result) {			
-			nAdapter = new NoticiasAdapter(getActivity().getBaseContext(), -1, NoticiasXmlPullParser.getNoticiasFromFile(getActivity().getBaseContext(),Global.XML_LACOSTA));
-			setListAdapter(nAdapter);
-			Log.d("Notitarde","Metodo onPOstExecute");
-			
-		}		
-		
-	}
 
 }

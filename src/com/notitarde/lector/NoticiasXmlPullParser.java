@@ -49,7 +49,7 @@ public class NoticiasXmlPullParser {
               XmlPullParser xpp = factory.newPullParser();
               
               // Open up InputStream and Reader of our file.
-              FileInputStream fis = ctx.openFileInput(xml);
+              FileInputStream fis = ctx.openFileInput(xml);              
               Log.d(Global.TAG,fis.toString());
               BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 

@@ -3,24 +3,24 @@ package com.notitarde.fragments;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.widget.TextView;
 
 public class Global {
 
 	public static final String TAG = "Notitarde";	
-	public static final String URL = "https://googledrive.com/host/0ByoQ8u8IrvxGMXBMcFpGY0twdkU/";
-	public static final String XML_TITULARES = "titulares.xml";
-	public static final String XML_VALENCIA = "valencia.xml";
-	public static final String XML_PAIS = "pais.xml";
-	public static final String XML_ECONOMIA = "economia.xml";
-	public static final String XML_INTERNACIONAL = "internacional.xml";
-	public static final String XML_DEPORTES ="deportes.xml";
-	public static final String XML_SUCESOS = "sucesos.xml";
-	public static final String XML_LACOSTA = "lacosta.xml";
-	public static final String XML_REGIONES = "regiones.xml";
-	public static final String XML_ESPECTACULOS = "espectaculos.xml";
-	public static final String XML_INSTITUCIONALES = "institucionales.xml";
-	public static final String XML_SOCIALES = "sociales.xml";
+	public static final String URL = "http://webservice.notitarde.com/Site/Binary/";
+	public static final String XML_TITULARES = "xml.aspx";
+	public static final String XML_VALENCIA = "xml.aspx?categoria=1";
+	public static final String XML_PAIS = "xml.aspx?categoria=2";
+	public static final String XML_ECONOMIA = "xml.aspx?categoria=3";
+	public static final String XML_INTERNACIONAL = "xml.aspx?categoria=4";
+	public static final String XML_DEPORTES ="xml.aspx?categoria=5";
+	public static final String XML_SUCESOS = "xml.aspx?categoria=6";
+	public static final String XML_LACOSTA = "xml.aspx?categoria=7";
+	public static final String XML_REGIONES = "xml.aspx?categoria=8";
+	public static final String XML_ESPECTACULOS = "xml.aspx?categoria=9";
+	public static final String XML_INSTITUCIONALES = "xml.aspx?categoria=10";
+	public static final String XML_SOCIALES = "xml.aspx?categoria=11";
+
 	public static  Boolean HAY_INTERNET = false;
 	
 	private  Context _ctx;
@@ -40,5 +40,5 @@ public class Global {
 		}
 		return false;
 	}
-	
+		
 }

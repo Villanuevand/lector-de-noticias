@@ -7,9 +7,9 @@
     <string name="action_share">Compartir</string>
     <string name="action_fuente">Fuente</string>
     <string name="action_email">Correo</string>
+    <string name="action_update">Actualizar</string>
 
-      
-	<!-- Arreglo de Secciones -->
+    <!-- Arreglo de Secciones -->
     <string-array name="secciones">
         <item>Titulares</item>
         <item>Valencia</item>
@@ -23,37 +23,29 @@
         <item>Espectáculos</item>
         <item>Institucionales</item>
         <item>Sociales</item>
-    </string-array>    
-    <!--  Arreglos de Tamaños de Fuente -->
+    </string-array>
+    <!-- Arreglos de Tamaños de Fuente -->
     <string-array name="tamanofuente">
         <item>Normal</item>
         <item>Mediana</item>
         <item>Grande</item>
         <item>Muy Grande</item>
     </string-array>
-    
 
-	
-    <string name="hello_world">Hello world!</string>    
-    <string name="imagenContent"></string>    
-    
-    
+    <string name="imagenContent"></string>
+
     <!-- String Nota -->
     <string name="nota_titulo">Titulo Nota</string>
     <string name="nota_seccion">Seccion</string>
-    <string name="nota_imagen"> </string>
+    <string name="nota_imagen"></string>
     <string name="nota_descripcion">Texto de la nota</string>
     <string name="nota_info_compartir">Notitarde</string>
-    
-    <!-- Tamaño Normal -->
-    <!-- Tamaño Mediano -->
-    <!-- Tamaño Grande -->
-    <!-- Tamaño Muy Grande -->
-    
+
     <!-- String Enviar e-Mail -->
     <string name="email_titulo_dialog">Enviar usando:</string>
     <string name="email_mensaje">He encontrado un artículo en Notitarde que puede interesarte.</string>
-    
+    <string name="email_enviado">¡Mensaje Enviado!</string>
+
     <!-- String Configuraciones App -->
     <string name="config_app_titulo">Configuración</string>
     <string name="config_app_utilidades">Utilidades</string>
@@ -63,12 +55,13 @@
     <string name="config_util_sumario">Comunicate con nosotros</string>
     <string name="config_prefs_titulo">Tamaño de Letra</string>
     <string name="config_prefs_sumario">Establece un tamaño de letra en los artículos.</string>
+
     <string-array name="sedes">
         <item>Valencia</item>
         <item>Caracas</item>
         <item>Maracay</item>
         <item>Puerto Cabello</item>
-    </string-array>    
+    </string-array>
     <string-array name="sedes_numeros">
         <item>02418501504</item>
         <item>02129522668</item>
@@ -87,8 +80,16 @@
         <item>2</item>
         <item>3</item>
     </string-array>
-    
-    
+
+    <!-- Comentarios y Respuestas -->
+
+
+    <!-- Cuentas Redes Sociales -->
+    <string name="redes_sociales_twitter">webnotitarde</string>
+    <string name="redes_sociales_facebook">https://www.facebook.com/Notitarde</string>
+    <string name="redes_sociales_instagram">webnotitarde</string>
+    <string name="title_activity_init">InitActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_splash_screen">SplashScreenActivity</string>
 
 </resources>
-

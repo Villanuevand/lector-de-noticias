@@ -18,6 +18,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
+import com.notitarde.fragments.Global;
 
 
 public class NoticiasAdapter extends ArrayAdapter<Noticias>{
@@ -58,7 +59,7 @@ public class NoticiasAdapter extends ArrayAdapter<Noticias>{
       @Override
       public View getView(int pos, View convertView, ViewGroup parent){
               RelativeLayout row = (RelativeLayout)convertView;
-              Log.i("Noticias", "Obteniendo pos = " + pos);
+              Log.i(Global.TAG, "Obteniendo pos = " + pos);
               if(null == row){
                       //No recycled View, we have to inflate one.
                       LayoutInflater inflater = (LayoutInflater)parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);

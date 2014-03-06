@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="xml_files">
+        <!-- Titulares  -->
+        <item>xml.aspx</item>
+        <!-- Valencia  -->
+        <item>xml.aspx?categoria=1</item>
+        <!-- País -->
+        <item>xml.aspx?categoria=2</item>
+        <!-- Economía -->
+        <item>xml.aspx?categoria=3</item>
+        <!-- Internacional -->
+        <item>xml.aspx?categoria=4</item>
+        <!-- Deportes -->
+        <item>xml.aspx?categoria=5</item>
+        <!-- Sucesos -->
+        <item>xml.aspx?categoria=6</item>
+        <!-- La Costa -->
+        <item>xml.aspx?categoria=7</item>
+        <!-- Regiones -->
+        <item>xml.aspx?categoria=8</item>
+        <!-- Espectaculos -->
+        <item>xml.aspx?categoria=9</item>
+        <!-- Institucionales -->
+        <item>xml.aspx?categoria=10</item>
+        <!-- Sociales -->
+        <item>xml.aspx?categoria=11</item>             
+    </string-array>
+</resources>

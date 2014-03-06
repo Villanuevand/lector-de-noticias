@@ -19,14 +19,15 @@ public final class R {
     public static final class array {
         /**  Arreglo de Secciones 
          */
-        public static final int secciones=0x7f0d0000;
-        public static final int sedes=0x7f0d0002;
-        public static final int sedes_numeros=0x7f0d0003;
-        public static final int sedes_ubicacion=0x7f0d0004;
-        /**   Arreglos de Tamaños de Fuente 
+        public static final int secciones=0x7f0d0001;
+        public static final int sedes=0x7f0d0003;
+        public static final int sedes_numeros=0x7f0d0004;
+        public static final int sedes_ubicacion=0x7f0d0005;
+        /**  Arreglos de Tamaños de Fuente 
          */
-        public static final int tamanofuente=0x7f0d0001;
-        public static final int valores_tamanofuente=0x7f0d0005;
+        public static final int tamanofuente=0x7f0d0002;
+        public static final int valores_tamanofuente=0x7f0d0006;
+        public static final int xml_files=0x7f0d0000;
     }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
@@ -1008,14 +1009,15 @@ containing a value of this type.
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
         public static final int ic_action_new_email=0x7f020057;
         public static final int ic_action_overflow=0x7f020058;
-        public static final int ic_action_share=0x7f020059;
-        public static final int ic_launcher=0x7f02005a;
+        public static final int ic_action_refresh=0x7f020059;
+        public static final int ic_action_share=0x7f02005a;
+        public static final int ic_launcher=0x7f02005b;
+        public static final int splash_screen=0x7f02005c;
     }
     public static final class id {
-        public static final int action_Notaemail=0x7f06004a;
-        public static final int action_Notafuente=0x7f060049;
-        public static final int action_Notasettings=0x7f060047;
-        public static final int action_Notashare=0x7f060048;
+        public static final int action_Notaemail=0x7f06004b;
+        public static final int action_Notafuente=0x7f06004a;
+        public static final int action_Notashare=0x7f060049;
         public static final int action_bar=0x7f06001c;
         public static final int action_bar_activity_content=0x7f060015;
         public static final int action_bar_container=0x7f06001b;
@@ -1024,10 +1026,12 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f060023;
         public static final int action_bar_title=0x7f060022;
         public static final int action_context_bar=0x7f06001d;
-        public static final int action_mainSettings=0x7f06004b;
+        public static final int action_mainSettings=0x7f06004c;
         public static final int action_menu_divider=0x7f060016;
         public static final int action_menu_presenter=0x7f060017;
         public static final int action_mode_close_button=0x7f060024;
+        public static final int action_refresh=0x7f06004d;
+        public static final int action_settings=0x7f060048;
         public static final int activity_chooser_view_content=0x7f060025;
         public static final int always=0x7f06000b;
         public static final int beginning=0x7f060011;
@@ -1046,17 +1050,18 @@ containing a value of this type.
         public static final int icon=0x7f06002a;
         public static final int ifRoom=0x7f06000a;
         public static final int image=0x7f060027;
-        public static final int ivImagenListado=0x7f060043;
+        public static final int ivImagenListado=0x7f060044;
         public static final int iv_imagenInternaNota=0x7f060040;
         public static final int listMode=0x7f060001;
         public static final int list_item=0x7f060029;
         public static final int ly_svNota=0x7f06003d;
+        public static final int main_activity=0x7f060042;
         public static final int middle=0x7f060012;
         public static final int never=0x7f060009;
         public static final int none=0x7f060010;
         public static final int normal=0x7f060000;
-        public static final int pager=0x7f060046;
-        public static final int progressListado=0x7f060042;
+        public static final int pager=0x7f060047;
+        public static final int progressListado=0x7f060043;
         public static final int progress_circular=0x7f060018;
         public static final int progress_horizontal=0x7f060019;
         public static final int radio=0x7f06002f;
@@ -1080,8 +1085,8 @@ containing a value of this type.
         public static final int tabMode=0x7f060002;
         public static final int title=0x7f06002b;
         public static final int top_action_bar=0x7f060020;
-        public static final int tvDescripcionListado=0x7f060045;
-        public static final int tvTituloListado=0x7f060044;
+        public static final int tvDescripcionListado=0x7f060046;
+        public static final int tvTituloListado=0x7f060045;
         public static final int tv_descripcionInternaNota=0x7f060041;
         public static final int tv_seccionInternaNota=0x7f06003f;
         public static final int tv_tituloInternaNota=0x7f06003e;
@@ -1140,25 +1145,28 @@ containing a value of this type.
         public static final int abc_search_view=0x7f030016;
         public static final int activity_leer=0x7f030017;
         public static final int activity_main=0x7f030018;
-        public static final int fragment_deportes=0x7f030019;
-        public static final int fragment_economia=0x7f03001a;
-        public static final int fragment_espectaculos=0x7f03001b;
-        public static final int fragment_institucionales=0x7f03001c;
-        public static final int fragment_internacional=0x7f03001d;
-        public static final int fragment_la_costa=0x7f03001e;
-        public static final int fragment_pais=0x7f03001f;
-        public static final int fragment_regiones=0x7f030020;
-        public static final int fragment_sociales=0x7f030021;
-        public static final int fragment_sucesos=0x7f030022;
-        public static final int fragment_titulares=0x7f030023;
-        public static final int fragment_valencia=0x7f030024;
-        public static final int noticia_item=0x7f030025;
-        public static final int support_simple_spinner_dropdown_item=0x7f030026;
-        public static final int swipe_tab=0x7f030027;
+        public static final int activity_splash_screen=0x7f030019;
+        public static final int fragment_deportes=0x7f03001a;
+        public static final int fragment_economia=0x7f03001b;
+        public static final int fragment_espectaculos=0x7f03001c;
+        public static final int fragment_institucionales=0x7f03001d;
+        public static final int fragment_internacional=0x7f03001e;
+        public static final int fragment_la_costa=0x7f03001f;
+        public static final int fragment_pais=0x7f030020;
+        public static final int fragment_regiones=0x7f030021;
+        public static final int fragment_sociales=0x7f030022;
+        public static final int fragment_sucesos=0x7f030023;
+        public static final int fragment_titulares=0x7f030024;
+        public static final int fragment_valencia=0x7f030025;
+        public static final int noticia_item=0x7f030026;
+        public static final int support_simple_spinner_dropdown_item=0x7f030027;
+        public static final int swipe_tab=0x7f030028;
     }
     public static final class menu {
-        public static final int leer=0x7f0e0000;
-        public static final int main=0x7f0e0001;
+        public static final int init=0x7f0e0000;
+        public static final int leer=0x7f0e0001;
+        public static final int main=0x7f0e0002;
+        public static final int splash_screen=0x7f0e0003;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1207,27 +1215,25 @@ containing a value of this type.
          */
         public static final int action_settings=0x7f0b000f;
         public static final int action_share=0x7f0b0010;
+        public static final int action_update=0x7f0b0013;
         public static final int app_name=0x7f0b000e;
-        public static final int config_app_acerca=0x7f0b001f;
-        public static final int config_app_preferencias=0x7f0b001e;
+        public static final int config_app_acerca=0x7f0b0020;
+        public static final int config_app_preferencias=0x7f0b001f;
         /**  String Configuraciones App 
          */
-        public static final int config_app_titulo=0x7f0b001c;
-        public static final int config_app_utilidades=0x7f0b001d;
-        public static final int config_prefs_sumario=0x7f0b0023;
-        public static final int config_prefs_titulo=0x7f0b0022;
-        public static final int config_util_sumario=0x7f0b0021;
-        public static final int config_util_titulo=0x7f0b0020;
+        public static final int config_app_titulo=0x7f0b001d;
+        public static final int config_app_utilidades=0x7f0b001e;
+        public static final int config_prefs_sumario=0x7f0b0024;
+        public static final int config_prefs_titulo=0x7f0b0023;
+        public static final int config_util_sumario=0x7f0b0022;
+        public static final int config_util_titulo=0x7f0b0021;
+        public static final int email_enviado=0x7f0b001c;
         public static final int email_mensaje=0x7f0b001b;
-        /**  Tamaño Normal 
- Tamaño Mediano 
- Tamaño Grande 
- Tamaño Muy Grande 
- String Enviar e-Mail 
+        /**  String Enviar e-Mail 
          */
         public static final int email_titulo_dialog=0x7f0b001a;
         public static final int error_fuente_tamano=0x7f0b000d;
-        public static final int hello_world=0x7f0b0013;
+        public static final int hello_world=0x7f0b0029;
         public static final int imagenContent=0x7f0b0014;
         public static final int nota_descripcion=0x7f0b0018;
         public static final int nota_imagen=0x7f0b0017;
@@ -1236,6 +1242,14 @@ containing a value of this type.
         /**  String Nota 
          */
         public static final int nota_titulo=0x7f0b0015;
+        public static final int redes_sociales_facebook=0x7f0b0026;
+        public static final int redes_sociales_instagram=0x7f0b0027;
+        /**  Comentarios y Respuestas 
+ Cuentas Redes Sociales 
+         */
+        public static final int redes_sociales_twitter=0x7f0b0025;
+        public static final int title_activity_init=0x7f0b0028;
+        public static final int title_activity_splash_screen=0x7f0b002a;
     }
     public static final class style {
         /** 

@@ -13,7 +13,9 @@ import com.notitarde.fragments.FragmentSociales;
 import com.notitarde.fragments.FragmentSucesos;
 import com.notitarde.fragments.FragmentTitulares;
 import com.notitarde.fragments.FragmentValencia;
+
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -27,22 +29,23 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 //import android.widget.Toast;
 
 
-public class MainActivity extends ActionBarActivity implements ActionBar.TabListener, OnPageChangeListener {
+public class MainActivity extends ActionBarActivity implements ActionBar.TabListener, OnPageChangeListener{
 
-	private ViewPager mViewPager;
-	static final String TAG ="Debug-Notitarde";	
-	
+	private ViewPager mViewPager;	
 	NoticiasAdapter nAdapter;
 	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		setContentView(R.layout.swipe_tab);				
+			
+		AsyncDownload ad = new AsyncDownload();
+		ad.execute();
+ 		setContentView(R.layout.swipe_tab);				
 		PagerAdapter pAdapter = new PagerAdapter(getSupportFragmentManager());
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(pAdapter);
@@ -69,14 +72,16 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	
-	
+		
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.action_mainSettings:
 			InflarMenuOpciones();
-			return true;			
+			return true;
+		case R.id.action_refresh:
+			actualizarXml();
+			return true;
 		default:
 			break;
 		}
@@ -86,6 +91,13 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 	//Inflador Opciones de Menú
 	private void InflarMenuOpciones() {
 		startActivity(new Intent(this,PreferenciasActivity.class));		
+	}
+	
+	//Actualizar Archivos XML	
+	private void actualizarXml(){
+		Toast.makeText(getBaseContext(), "Actualizando", Toast.LENGTH_LONG).show();
+		AsyncDownload ad = new AsyncDownload();
+		ad.execute();
 	}
 
 	//	Adpatador de Páginas 
@@ -162,6 +174,14 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 		
 	}
 	
+private class AsyncDownload extends AsyncTask<Void, Void, Void>{
 
+	@Override
+	protected Void doInBackground(Void... params) {
+		Downloader.DownloadAllFiles(getApplicationContext(),5,11);
+		return null;
+	}
+	
+}
 
 }

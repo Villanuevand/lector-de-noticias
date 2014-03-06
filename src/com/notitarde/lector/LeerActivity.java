@@ -98,10 +98,7 @@ public class LeerActivity extends ActionBarActivity implements DialogFuente.Frag
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.action_Notasettings:
-			Toast.makeText(this, "menu", Toast.LENGTH_SHORT).show();
-			return true;
+		switch (item.getItemId()) {		
 		case R.id.action_Notashare:
 			mostrarOpcionShare();			
 			return true;
@@ -126,15 +123,17 @@ public class LeerActivity extends ActionBarActivity implements DialogFuente.Frag
 	private void mostarOpcionMail() {		
 		Intent email = new Intent();
 		email.putExtra(Intent.EXTRA_SUBJECT,b.getString("titulo"));
-		email.putExtra(Intent.EXTRA_TEXT,getResources().getString(R.string.email_mensaje)+"\n"+b.getString("titulo")+"\n"+b.getString("url"));
+		email.putExtra(Intent.EXTRA_TEXT,getResources().getString(R.string.email_mensaje)+"\n"+b.getString("titulo")+"\n"+b.getString("url")+" vía Notitarde @"+R.string.redes_sociales_instagram);
 		email.setType("message/rfc822");
 		startActivity(Intent.createChooser(email, getResources().getString(R.string.email_titulo_dialog)));
+		Toast.makeText(getApplicationContext(), R.string.email_enviado,Toast.LENGTH_SHORT).show();
+		
 	}
 
 	private void mostrarOpcionShare() {
 		Intent i = new Intent();
 		i.setAction(Intent.ACTION_SEND);
-		i.putExtra(Intent.EXTRA_TEXT,b.getString("titulo")+"\n"+b.getString("url"));
+		i.putExtra(Intent.EXTRA_TEXT,b.getString("titulo")+"\n"+b.getString("url")+" vía ");
 		i.setType("text/plain");
 		startActivity(Intent.createChooser(i, getResources().getText(R.string.action_share)));		
 	}

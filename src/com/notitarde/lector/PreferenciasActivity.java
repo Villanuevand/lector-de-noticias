@@ -4,13 +4,15 @@ import android.os.Bundle;
 //import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
 
-public class PreferenciasActivity extends PreferenceActivity {
+public class PreferenciasActivity extends PreferenceActivity{
 	
 
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {				
 		super.onCreate(savedInstanceState);				
-		addPreferencesFromResource(R.xml.preferencias_principal);						
+		addPreferencesFromResource(R.xml.preferencias_principal);
+				
 	}
 
 

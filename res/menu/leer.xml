@@ -1,12 +1,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:notitarde="http://schemas.android.com/apk/res-auto" >
 
-    <item
+   <!--  <item
         android:id="@+id/action_Notasettings"
         android:orderInCategory="100"
         notitarde:showAsAction="ifRoom|withText"
         android:title="@string/action_settings"
         android:icon="@drawable/ic_action_overflow"/>
+         -->
     
     <item android:id="@+id/action_Notashare"
           notitarde:showAsAction="ifRoom|withText"          

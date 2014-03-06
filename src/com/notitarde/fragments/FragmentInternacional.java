@@ -1,14 +1,14 @@
 package com.notitarde.fragments;
 
-import com.notitarde.lector.Downloader;
+//import com.notitarde.lector.Downloader;
 import com.notitarde.lector.LeerActivity;
 import com.notitarde.lector.NoticiasAdapter;
 import com.notitarde.lector.NoticiasXmlPullParser;
 import com.notitarde.lector.R;
 
-import android.content.Context;
+//import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
+//import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
@@ -37,21 +37,21 @@ public class FragmentInternacional extends ListFragment {
 		return inflater.inflate(R.layout.fragment_internacional,
 				container, false);
 	}
+	
+	
 	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {		
-		super.onActivityCreated(savedInstanceState);
-		g = new Global(getActivity());
-		Global.HAY_INTERNET = g.conexionInternet();
-		Log.d(Global.TAG + " - Hay Internet", Global.HAY_INTERNET.toString());
-		if(Global.HAY_INTERNET){			
-			NoticiasDownloadTask dn = new NoticiasDownloadTask();
-			dn.execute();
-		}else{
-			nAdapter = new NoticiasAdapter(getActivity(), -1, NoticiasXmlPullParser.getNoticiasFromFile(getActivity().getBaseContext(),Global.XML_INTERNACIONAL));
-		}
-				
-		
+	public void onViewCreated(View view, Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onViewCreated(view, savedInstanceState);
+			try {
+				nAdapter = new NoticiasAdapter(getActivity(), -1, NoticiasXmlPullParser.getNoticiasFromFile(getActivity().getBaseContext(),Global.XML_INTERNACIONAL));
+				setListAdapter(nAdapter);
+				Log.d(Global.TAG,"Fragment Internacional - Adaptador inflado OK");
+			} catch (Exception e) {
+				Log.e(Global.TAG,"Fragment Internacional - Error en adaptador "+e);
+			}
 	}
+
 	
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
@@ -68,29 +68,27 @@ public class FragmentInternacional extends ListFragment {
 		
 	}
 
-	private class NoticiasDownloadTask extends AsyncTask<Void, Void, Void>
-	{
-		@Override
-		protected Void doInBackground(Void... params) {
-			try {
-				Log.d(Global.TAG," Metodo doInBackgroud");
-				Downloader.DownloadFromUrl(Global.URL+Global.XML_INTERNACIONAL, getActivity().openFileOutput(Global.XML_INTERNACIONAL, Context.MODE_PRIVATE));		
-			} catch (Exception e) {
-				Log.d(Global.TAG,"Excepcion doInBackground: " +e.toString());					
-			}				
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute(Void result) {			
-			nAdapter = new NoticiasAdapter(getActivity().getBaseContext(), -1, NoticiasXmlPullParser.getNoticiasFromFile(getActivity().getBaseContext(),Global.XML_INTERNACIONAL));
-			setListAdapter(nAdapter);
-			Log.d("Notitarde","Metodo onPOstExecute");
-			
-		}
-		
-		
-		
-	}
+//	private class NoticiasDownloadTask extends AsyncTask<Void, Void, Void>
+//	{
+//		@Override
+//		protected Void doInBackground(Void... params) {
+//			try {
+//				Log.d(Global.TAG," Metodo doInBackgroud");
+//				Downloader.DownloadFromUrl(Global.URL+Global.XML_INTERNACIONAL, getActivity().openFileOutput(Global.XML_INTERNACIONAL, Context.MODE_PRIVATE));		
+//			} catch (Exception e) {
+//				Log.d(Global.TAG,"Excepcion doInBackground: " +e.toString());					
+//			}				
+//			return null;
+//		}
+//
+//		@Override
+//		protected void onPostExecute(Void result) {			
+//			nAdapter = new NoticiasAdapter(getActivity().getBaseContext(), -1, NoticiasXmlPullParser.getNoticiasFromFile(getActivity().getBaseContext(),Global.XML_INTERNACIONAL));
+//			setListAdapter(nAdapter);
+//			Log.d("Notitarde","Metodo onPOstExecute");
+//			
+//		}
+//				
+//	}
 
 }
