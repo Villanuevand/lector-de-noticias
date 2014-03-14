@@ -23,7 +23,7 @@ public class Downloader {
     static final int POST_PROGRESS = 1;
     
     /************************************************
-     * Descargar un archivo en internet y guardarlo localmente.
+     * Descargar un archivo desde una url y guardarlo localmente.
      * 
      * @param URL - Url del archivo a descargar
      * @param fos - Un FileOutputStream para guardar el archivo descargado.
@@ -41,7 +41,7 @@ public class Downloader {
                     URLConnection ucon = url.openConnection();
                     
                     // this will be useful so that you can show a tipical 0-100% progress bar
-        //int lenghtOfFile = ucon.getContentLength();
+                    //int lenghtOfFile = ucon.getContentLength();
 
                     Log.i(Global.TAG, "Conexión abierta.");
                     
@@ -83,19 +83,27 @@ public class Downloader {
                                     + ((System.currentTimeMillis() - startTime))
                                     + " milisec");
             } catch (IOException e) {
-                    Log.e(Global.TAG, "Error: " + e);
+                    Log.e(Global.TAG, "Error DownloadFromUrl " + e);
             }
     }
     
+    
+    /**
+     * Recorre un arreglo de direcciones URL donde se ubican los archivos XML que nutren la aplicación y los descarga localmente.
+     * 
+     * @param ctx - Contexto de la actividad
+     * @param ini - Indice inicial
+     * @param fin - Indice final
+     */
     public static void DownloadAllFiles(Context ctx, int ini,int fin){    	
     	String[] arr;
     	arr = ctx.getResources().getStringArray(R.array.xml_files);    	
     	for (int i = ini; i < fin; i++) {
     		try {    		
 				DownloadFromUrl(Global.URL+arr[i], ctx.getApplicationContext().openFileOutput(arr[i], Context.MODE_PRIVATE));
-				Log.i(Global.TAG,"Archivo "+arr[i]+ "descargado.");
+				Log.i(Global.TAG,"Archivo "+arr[i]+ " descargado.");
 			} catch (FileNotFoundException e) {				
-				Log.e(Global.TAG, e.toString());
+				Log.e(Global.TAG, "Error DownloadAllFiles "+e.toString());
 				e.printStackTrace();				
 			}    		
 		}		    	

@@ -15,19 +15,25 @@ public final class R {
         public static final int abc_slide_in_top=0x7f040003;
         public static final int abc_slide_out_bottom=0x7f040004;
         public static final int abc_slide_out_top=0x7f040005;
+        public static final int refresh_rotate=0x7f040006;
     }
     public static final class array {
-        /**  Arreglo de Secciones 
+        /**  Secciones 
          */
-        public static final int secciones=0x7f0d0001;
-        public static final int sedes=0x7f0d0003;
-        public static final int sedes_numeros=0x7f0d0004;
-        public static final int sedes_ubicacion=0x7f0d0005;
-        /**  Arreglos de Tamaños de Fuente 
+        public static final int secciones=0x7f0d0000;
+        /**  Tamaños de Fuente 
          */
-        public static final int tamanofuente=0x7f0d0002;
-        public static final int valores_tamanofuente=0x7f0d0006;
-        public static final int xml_files=0x7f0d0000;
+        public static final int tamanofuente=0x7f0d0003;
+        /**  Valores Secciones Visibles 
+         */
+        public static final int valores_secciones=0x7f0d0001;
+        /**  Valores Secciones Visibles Default 
+         */
+        public static final int valores_secciones_default=0x7f0d0002;
+        /**  Valores Tamaños de Fuente  
+         */
+        public static final int valores_tamanofuente=0x7f0d0004;
+        public static final int xml_files=0x7f0d0005;
     }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
@@ -1011,8 +1017,9 @@ containing a value of this type.
         public static final int ic_action_overflow=0x7f020058;
         public static final int ic_action_refresh=0x7f020059;
         public static final int ic_action_share=0x7f02005a;
-        public static final int ic_launcher=0x7f02005b;
-        public static final int splash_screen=0x7f02005c;
+        public static final int ic_imagen_precarga=0x7f02005b;
+        public static final int ic_launcher=0x7f02005c;
+        public static final int splash_screen=0x7f02005d;
     }
     public static final class id {
         public static final int action_Notaemail=0x7f06004b;
@@ -1050,6 +1057,7 @@ containing a value of this type.
         public static final int icon=0x7f06002a;
         public static final int ifRoom=0x7f06000a;
         public static final int image=0x7f060027;
+        public static final int img_precarga=0x7f060043;
         public static final int ivImagenListado=0x7f060044;
         public static final int iv_imagenInternaNota=0x7f060040;
         public static final int listMode=0x7f060001;
@@ -1061,7 +1069,6 @@ containing a value of this type.
         public static final int none=0x7f060010;
         public static final int normal=0x7f060000;
         public static final int pager=0x7f060047;
-        public static final int progressListado=0x7f060043;
         public static final int progress_circular=0x7f060018;
         public static final int progress_horizontal=0x7f060019;
         public static final int radio=0x7f06002f;
@@ -1158,9 +1165,10 @@ containing a value of this type.
         public static final int fragment_sucesos=0x7f030023;
         public static final int fragment_titulares=0x7f030024;
         public static final int fragment_valencia=0x7f030025;
-        public static final int noticia_item=0x7f030026;
-        public static final int support_simple_spinner_dropdown_item=0x7f030027;
-        public static final int swipe_tab=0x7f030028;
+        public static final int layout_action_refresh=0x7f030026;
+        public static final int noticia_item=0x7f030027;
+        public static final int support_simple_spinner_dropdown_item=0x7f030028;
+        public static final int swipe_tab=0x7f030029;
     }
     public static final class menu {
         public static final int init=0x7f0e0000;
@@ -1209,47 +1217,57 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0b000b;
-        public static final int action_email=0x7f0b0012;
-        public static final int action_fuente=0x7f0b0011;
+        public static final int action_email=0x7f0b0013;
+        public static final int action_fuente=0x7f0b0012;
         /**  String Menú 
          */
-        public static final int action_settings=0x7f0b000f;
-        public static final int action_share=0x7f0b0010;
-        public static final int action_update=0x7f0b0013;
-        public static final int app_name=0x7f0b000e;
-        public static final int config_app_acerca=0x7f0b0020;
-        public static final int config_app_preferencias=0x7f0b001f;
+        public static final int action_settings=0x7f0b0010;
+        public static final int action_share=0x7f0b0011;
+        public static final int action_update=0x7f0b0014;
+        public static final int app_name=0x7f0b000f;
+        public static final int config_app_acerca=0x7f0b0022;
+        public static final int config_app_preferencias=0x7f0b0020;
+        public static final int config_app_tabs=0x7f0b0021;
         /**  String Configuraciones App 
          */
-        public static final int config_app_titulo=0x7f0b001d;
-        public static final int config_app_utilidades=0x7f0b001e;
-        public static final int config_prefs_sumario=0x7f0b0024;
-        public static final int config_prefs_titulo=0x7f0b0023;
-        public static final int config_util_sumario=0x7f0b0022;
-        public static final int config_util_titulo=0x7f0b0021;
-        public static final int email_enviado=0x7f0b001c;
-        public static final int email_mensaje=0x7f0b001b;
+        public static final int config_app_titulo=0x7f0b001e;
+        public static final int config_app_utilidades=0x7f0b001f;
+        public static final int config_prefs_letra_sumario=0x7f0b0026;
+        public static final int config_prefs_letra_titulo=0x7f0b0025;
+        public static final int config_prefs_tabs_sumario=0x7f0b0028;
+        public static final int config_prefs_tabs_titulo=0x7f0b0027;
+        public static final int config_util_sumario=0x7f0b0024;
+        public static final int config_util_titulo=0x7f0b0023;
+        public static final int dialog_refresh_mensaje=0x7f0b002f;
+        public static final int dialog_refresh_negative_button_titulo=0x7f0b0031;
+        public static final int dialog_refresh_positive_button_titulo=0x7f0b0030;
+        /**  Dialogs 
+         */
+        public static final int dialog_refresh_titulo=0x7f0b002e;
+        public static final int email_enviado=0x7f0b001d;
+        public static final int email_mensaje=0x7f0b001c;
         /**  String Enviar e-Mail 
          */
-        public static final int email_titulo_dialog=0x7f0b001a;
+        public static final int email_titulo_dialog=0x7f0b001b;
+        public static final int error_conexion_internet=0x7f0b000e;
         public static final int error_fuente_tamano=0x7f0b000d;
-        public static final int hello_world=0x7f0b0029;
-        public static final int imagenContent=0x7f0b0014;
-        public static final int nota_descripcion=0x7f0b0018;
-        public static final int nota_imagen=0x7f0b0017;
-        public static final int nota_info_compartir=0x7f0b0019;
-        public static final int nota_seccion=0x7f0b0016;
+        public static final int imagenContent=0x7f0b0015;
+        public static final int nota_descripcion=0x7f0b0019;
+        public static final int nota_imagen=0x7f0b0018;
+        public static final int nota_info_compartir=0x7f0b001a;
+        public static final int nota_seccion=0x7f0b0017;
         /**  String Nota 
          */
-        public static final int nota_titulo=0x7f0b0015;
-        public static final int redes_sociales_facebook=0x7f0b0026;
-        public static final int redes_sociales_instagram=0x7f0b0027;
-        /**  Comentarios y Respuestas 
- Cuentas Redes Sociales 
+        public static final int nota_titulo=0x7f0b0016;
+        public static final int redes_sociales_facebook=0x7f0b002a;
+        public static final int redes_sociales_instagram=0x7f0b002b;
+        /**  Cuentas Redes Sociales 
          */
-        public static final int redes_sociales_twitter=0x7f0b0025;
-        public static final int title_activity_init=0x7f0b0028;
-        public static final int title_activity_splash_screen=0x7f0b002a;
+        public static final int redes_sociales_twitter=0x7f0b0029;
+        /**  Notificaciones 
+         */
+        public static final int toast_actualizacion_completa=0x7f0b002c;
+        public static final int toast_exit_menssage=0x7f0b002d;
     }
     public static final class style {
         /** 

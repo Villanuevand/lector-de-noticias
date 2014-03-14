@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Secciones -->
+    <string-array name="secciones">
+        <item>Titulares</item>
+        <item>Valencia</item>
+        <item>País</item>
+        <item>Economía</item>
+        <item>Internacional</item>
+        <item>Deportes</item>
+        <item>Sucesos</item>
+        <item>La Costa</item>
+        <item>Regiones</item>
+        <item>Espectáculos</item>
+        <item>Institucionales</item>
+        <item>Sociales</item>
+    </string-array>
+    
+    <!-- Valores Secciones Visibles -->
+    <string-array name="valores_secciones">
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+    </string-array>
+    
+    <!-- Valores Secciones Visibles Default -->
+    <string-array name="valores_secciones_default">
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>false</item>
+        <item>false</item>
+        <item>false</item>
+        <item>false</item>
+        <item>false</item>
+        <item>false</item>
+        <item>false</item>
+    </string-array>
+    
+    <!-- Tamaños de Fuente -->
+    <string-array name="tamanofuente">
+        <item>Normal</item>
+        <item>Mediana</item>
+        <item>Grande</item>
+        <item>Muy Grande</item>
+    </string-array>
+    
+    <!-- Valores Tamaños de Fuente  -->
+    <string-array name="valores_tamanofuente">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+</resources>

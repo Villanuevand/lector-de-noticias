@@ -5,11 +5,22 @@
         >
       <ListPreference
           android:key="PREF_FUENTE"
-          android:title="@string/config_prefs_titulo"
-          android:summary="@string/config_prefs_sumario" 
+          android:title="@string/config_prefs_letra_titulo"
+          android:summary="@string/config_prefs_letra_sumario" 
           android:entries="@array/tamanofuente"
           android:entryValues="@array/valores_tamanofuente"
-          />      
+          />                
     </PreferenceCategory>
+<!--     <PreferenceCategory  -->
+<!--         android:title="@string/config_prefs_tabs_titulo"> -->
+<!--         <MultiSelectListPreference -->
+<!--             android:key="PREF_SECCIONES" -->
+<!--             android:title="@string/config_prefs_tabs_titulo" -->
+<!--             android:summary="@string/config_prefs_tabs_sumario" -->
+<!--             android:entries="@array/secciones" -->
+<!--             android:entryValues="@array/valores_secciones"   -->
+<!--             android:defaultValue="@array/valores_secciones_default"           -->
+<!--             /> -->
+<!--     </PreferenceCategory> -->
 
 </PreferenceScreen>

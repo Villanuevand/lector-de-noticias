@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -70,10 +69,10 @@ public class NoticiasAdapter extends ArrayAdapter<Noticias>{
               final ImageView iconImg = (ImageView)row.findViewById(R.id.ivImagenListado);
               TextView titulo = (TextView)row.findViewById(R.id.tvTituloListado);
               TextView descripcion = (TextView)row.findViewById(R.id.tvDescripcionListado);
-              final ProgressBar indicador = (ProgressBar)row.findViewById(R.id.progressListado);
+              final ImageView img_precarga = (ImageView)row.findViewById(R.id.img_precarga);
               
               //Initially we want the progress indicator visible, and the image invisible
-              indicador.setVisibility(View.VISIBLE);
+              img_precarga.setVisibility(View.VISIBLE);
               iconImg.setVisibility(View.INVISIBLE);
 
               //Setup a listener we can use to swtich from the loading indicator to the Image once it's ready
@@ -93,7 +92,7 @@ public class NoticiasAdapter extends ArrayAdapter<Noticias>{
 
                       @Override
                       public void onLoadingComplete(String arg0, View arg1, Bitmap arg2) {
-                              indicador.setVisibility(View.INVISIBLE);
+                              img_precarga.setVisibility(View.INVISIBLE);
                               iconImg.setVisibility(View.VISIBLE);
                       }
 

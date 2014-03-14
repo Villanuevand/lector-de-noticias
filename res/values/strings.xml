@@ -3,35 +3,12 @@
 
     <string name="app_name">Notitarde</string>
     <!-- String Menú -->
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Ajustes</string>
     <string name="action_share">Compartir</string>
     <string name="action_fuente">Fuente</string>
     <string name="action_email">Correo</string>
     <string name="action_update">Actualizar</string>
-
-    <!-- Arreglo de Secciones -->
-    <string-array name="secciones">
-        <item>Titulares</item>
-        <item>Valencia</item>
-        <item>País</item>
-        <item>Economía</item>
-        <item>Internacional</item>
-        <item>Deportes</item>
-        <item>Sucesos</item>
-        <item>La Costa</item>
-        <item>Regiones</item>
-        <item>Espectáculos</item>
-        <item>Institucionales</item>
-        <item>Sociales</item>
-    </string-array>
-    <!-- Arreglos de Tamaños de Fuente -->
-    <string-array name="tamanofuente">
-        <item>Normal</item>
-        <item>Mediana</item>
-        <item>Grande</item>
-        <item>Muy Grande</item>
-    </string-array>
-
+    
     <string name="imagenContent"></string>
 
     <!-- String Nota -->
@@ -50,46 +27,28 @@
     <string name="config_app_titulo">Configuración</string>
     <string name="config_app_utilidades">Utilidades</string>
     <string name="config_app_preferencias">Preferencias</string>
+    <string name="config_app_tabs">Secciones</string>
     <string name="config_app_acerca">Acerca</string>
     <string name="config_util_titulo">Llamanos</string>
     <string name="config_util_sumario">Comunicate con nosotros</string>
-    <string name="config_prefs_titulo">Tamaño de Letra</string>
-    <string name="config_prefs_sumario">Establece un tamaño de letra en los artículos.</string>
-
-    <string-array name="sedes">
-        <item>Valencia</item>
-        <item>Caracas</item>
-        <item>Maracay</item>
-        <item>Puerto Cabello</item>
-    </string-array>
-    <string-array name="sedes_numeros">
-        <item>02418501504</item>
-        <item>02129522668</item>
-        <item>02432328859</item>
-        <item>02418501504</item>
-    </string-array>
-    <string-array name="sedes_ubicacion">
-        <item>Av. Boyacá entre Navas Spínola y Flores.</item>
-        <item>Torre Forum, piso 2 oficina 2B Av. Las Mercedes con calle Guaicaipuro, Urb. El Rosal.</item>
-        <item>Edificio Torre Sindoni, entre Av. Bolívar Oeste y Miranda, piso 22, oficina 6.</item>
-        <item>Centro Comercial Consolidado, planta baja local Nº 5 Edif. A.</item>
-    </string-array>
-    <string-array name="valores_tamanofuente">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-
-    <!-- Comentarios y Respuestas -->
-
-
+    <string name="config_prefs_letra_titulo">Tamaño de Letra</string>
+    <string name="config_prefs_letra_sumario">Establece un tamaño de letra en los artículos.</string>
+    <string name="config_prefs_tabs_titulo">Secciones a visualizar</string>
+    <string name="config_prefs_tabs_sumario">Elige que secciones deseas ver</string>
+      
     <!-- Cuentas Redes Sociales -->
     <string name="redes_sociales_twitter">webnotitarde</string>
     <string name="redes_sociales_facebook">https://www.facebook.com/Notitarde</string>
     <string name="redes_sociales_instagram">webnotitarde</string>
-    <string name="title_activity_init">InitActivity</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_splash_screen">SplashScreenActivity</string>
-
+    
+    <!-- Notificaciones -->	
+	<string name="toast_actualizacion_completa">¡Actualización completa!</string>
+	<string name="toast_exit_menssage">Pulse otra vez para salir</string>
+	
+	<!-- Dialogs -->
+	<string name="dialog_refresh_titulo">¿Actualizar noticias?</string>
+	<string name="dialog_refresh_mensaje">Esto podría tardar un poco!</string>
+	<string name="dialog_refresh_positive_button_titulo">Actualizar</string>
+	<string name="dialog_refresh_negative_button_titulo">Cancelar</string>
+	
 </resources>

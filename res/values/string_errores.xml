@@ -2,4 +2,5 @@
 <resources>
 
     <string name="error_fuente_tamano">Error modificando el tamaño de fuente</string>
+    <string name="error_conexion_internet">No hay conexión de datos</string>
 </resources>

@@ -5,6 +5,8 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
+import com.notitarde.fragments.Global;
+
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.content.Intent;
@@ -20,7 +22,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class LeerActivity extends ActionBarActivity implements DialogFuente.FragmentComunicador{
+public class LeerActivity extends ActionBarActivity implements DialogFuenteFragment.FragmentComunicador{
 
 	private TextView titulo;
 	private TextView seccion;		
@@ -30,22 +32,23 @@ public class LeerActivity extends ActionBarActivity implements DialogFuente.Frag
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_leer);		
+		setContentView(R.layout.activity_leer);	
 		titulo = (TextView) findViewById(R.id.tv_tituloInternaNota);
 		seccion = (TextView) findViewById(R.id.tv_seccionInternaNota);	
 		descripcion = (TextView) findViewById(R.id.tv_descripcionInternaNota);
 		b = getIntent().getExtras();		
-//		String url= b.getString("url");
+		//String url= b.getString("url");
 		setTamanoFuente();
 		titulo.setText(b.getString("titulo"));
 		seccion.setText(b.getString("seccion"));		
 		descripcion.setText(b.getString("descripcion"));		
 		getImageToDisplay(b.getString("imagen"));			
-		ActionBar ab = getSupportActionBar();
+		ActionBar ab = getSupportActionBar();		
 		ab.setTitle(R.string.app_name);					
-		ab.setSubtitle(b.getString("seccion"));
-		ab.setDisplayHomeAsUpEnabled(true);
+		ab.setSubtitle(b.getString("seccion"));	
 	}	
+
+
 
 	private void setTamanoFuente() {
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
@@ -112,35 +115,27 @@ public class LeerActivity extends ActionBarActivity implements DialogFuente.Frag
 			return super.onOptionsItemSelected(item);
 		}	
 	}
-	
 
-	@Override
-	protected void onResumeFragments() {
-		// TODO Auto-generated method stub
-		super.onResumeFragments();
-	}
 
 	private void mostarOpcionMail() {		
 		Intent email = new Intent();
 		email.putExtra(Intent.EXTRA_SUBJECT,b.getString("titulo"));
-		email.putExtra(Intent.EXTRA_TEXT,getResources().getString(R.string.email_mensaje)+"\n"+b.getString("titulo")+"\n"+b.getString("url")+" vía Notitarde @"+R.string.redes_sociales_instagram);
+		email.putExtra(Intent.EXTRA_TEXT,getResources().getString(R.string.email_mensaje)+"\n"+b.getString("titulo")+"\n"+b.getString("url")+" vía Notitarde @"+getResources().getString(R.string.redes_sociales_twitter));
 		email.setType("message/rfc822");
-		startActivity(Intent.createChooser(email, getResources().getString(R.string.email_titulo_dialog)));
-		Toast.makeText(getApplicationContext(), R.string.email_enviado,Toast.LENGTH_SHORT).show();
-		
+		startActivity(Intent.createChooser(email, getResources().getString(R.string.email_titulo_dialog)));			
 	}
 
 	private void mostrarOpcionShare() {
 		Intent i = new Intent();
 		i.setAction(Intent.ACTION_SEND);
-		i.putExtra(Intent.EXTRA_TEXT,b.getString("titulo")+"\n"+b.getString("url")+" vía ");
+		i.putExtra(Intent.EXTRA_TEXT,b.getString("titulo")+"\n"+b.getString("url")+" vía @"+getResources().getString(R.string.redes_sociales_twitter));
 		i.setType("text/plain");
 		startActivity(Intent.createChooser(i, getResources().getText(R.string.action_share)));		
 	}
 
 	public void mostrarDialog(){				
-		DialogFuente dialogFuente = new DialogFuente();			
-		dialogFuente.show(getSupportFragmentManager(),"Mi dialog de fuente");		
+		DialogFuenteFragment dialogFuente = new DialogFuenteFragment();			
+		dialogFuente.show(getSupportFragmentManager(),Global.TAG);		
 	}
 	
 	@Override

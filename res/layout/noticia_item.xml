@@ -2,17 +2,22 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" >
-    
-     <ProgressBar
-        android:id="@+id/progressListado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+   
+    <ImageView 
+        android:id="@+id/img_precarga"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="5dp"
+        android:contentDescription="@string/imagenContent"
+        android:src="@drawable/ic_imagen_precarga"/> 
 
     <ImageView
         android:id="@+id/ivImagenListado"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_marginRight="8dp"
+        android:layout_marginLeft="5dp"
         android:contentDescription="@string/imagenContent" />
 
     <TextView
@@ -20,8 +25,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/ivImagenListado"
+        android:layout_marginBottom="6dp"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:lineSpacingExtra="-4dp"/>
 
     <TextView
         android:id="@+id/tvDescripcionListado"

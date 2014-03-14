@@ -19,9 +19,11 @@ public class Global {
 	public static final String XML_REGIONES = "xml.aspx?categoria=8";
 	public static final String XML_ESPECTACULOS = "xml.aspx?categoria=9";
 	public static final String XML_INSTITUCIONALES = "xml.aspx?categoria=10";
-	public static final String XML_SOCIALES = "xml.aspx?categoria=11";
-
-	public static  Boolean HAY_INTERNET = false;
+	public static final String XML_SOCIALES = "xml.aspx?categoria=11";	
+	public static final int PRESSURE_PERIOD= 2000;
+	public static final long SPLASH_SCREEN_DELAY = 4000;	
+	public final boolean HAY_INTERNET = false;
+	public static boolean FLAG = false;
 	
 	private  Context _ctx;
 			
