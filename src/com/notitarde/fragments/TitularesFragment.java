@@ -1,5 +1,9 @@
 package com.notitarde.fragments;
 
+import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.Fields;
+import com.google.analytics.tracking.android.MapBuilder;
+import com.google.analytics.tracking.android.Tracker;
 import com.notitarde.lector.LeerActivity;
 import com.notitarde.lector.NoticiasAdapter;
 import com.notitarde.lector.NoticiasXmlPullParser;
@@ -20,9 +24,25 @@ import android.widget.ListView;
 public class TitularesFragment extends ListFragment {
 
 	private NoticiasAdapter nAdapter;
+	private Tracker	tracker;
 	
 	public TitularesFragment() {
 		// Required empty public constructor
+	}
+	
+	//Implementación de Google Analytics - Inicializando actividad a restrear 
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {		
+		super.onActivityCreated(savedInstanceState);
+		this.tracker = EasyTracker.getInstance(getActivity());
+	}
+	
+	//Implementación de Google Analytics - Finalizando restreo
+	@Override
+	public void onResume() {		
+		super.onResume();
+		this.tracker.set(Fields.SCREEN_NAME, "Titulares");
+		this.tracker.send(MapBuilder.createAppView().build());
 	}
 
 	@Override
@@ -43,9 +63,7 @@ public class TitularesFragment extends ListFragment {
 			Log.e(Global.TAG,"Fragment Titulares - Error al inflar adaptador "+e);
 		}			
 			
-	}
-	
-
+	}	
 
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {

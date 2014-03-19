@@ -1,5 +1,9 @@
 package com.notitarde.lector;
 
+import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.Fields;
+import com.google.analytics.tracking.android.MapBuilder;
+import com.google.analytics.tracking.android.Tracker;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -12,6 +16,7 @@ import android.preference.PreferenceManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -27,6 +32,7 @@ public class LeerActivity extends ActionBarActivity implements DialogFuenteFragm
 	private TextView titulo;
 	private TextView seccion;		
 	private TextView descripcion;
+	private Tracker tracker;
 	Bundle b;
 	
 	@Override
@@ -46,8 +52,14 @@ public class LeerActivity extends ActionBarActivity implements DialogFuenteFragm
 		ActionBar ab = getSupportActionBar();		
 		ab.setTitle(R.string.app_name);					
 		ab.setSubtitle(b.getString("seccion"));	
+		ab.setDisplayHomeAsUpEnabled(true);
+		//Implementacion Google Analytics
+		this.tracker = EasyTracker.getInstance(getBaseContext());
+		this.tracker.set(Fields.SCREEN_NAME, b.getString("seccion") + " - " +b.getString("titulo"));
+		this.tracker.send(MapBuilder.createAppView().build());
 	}	
 
+	
 
 
 	private void setTamanoFuente() {
@@ -102,6 +114,9 @@ public class LeerActivity extends ActionBarActivity implements DialogFuenteFragm
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {		
+		case R.id.home:
+			NavUtils.navigateUpFromSameTask(getParent());
+			return true;
 		case R.id.action_Notashare:
 			mostrarOpcionShare();			
 			return true;

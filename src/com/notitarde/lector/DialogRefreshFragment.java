@@ -24,7 +24,7 @@ public class DialogRefreshFragment extends DialogFragment {
 		
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 		builder.setTitle(R.string.dialog_refresh_titulo);
-		builder.setMessage(R.string.dialog_refresh_mensaje);
+		//builder.setMessage(R.string.dialog_refresh_mensaje);
 		builder.setPositiveButton(R.string.dialog_refresh_positive_button_titulo, new DialogInterface.OnClickListener() {				
 				@Override
 				public void onClick(DialogInterface dialog, int which) {				

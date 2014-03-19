@@ -48,7 +48,9 @@
 	<!-- Dialogs -->
 	<string name="dialog_refresh_titulo">¿Actualizar noticias?</string>
 	<string name="dialog_refresh_mensaje">Esto podría tardar un poco!</string>
-	<string name="dialog_refresh_positive_button_titulo">Actualizar</string>
+	<string name="dialog_refresh_positive_button_titulo">Aceptar</string>
 	<string name="dialog_refresh_negative_button_titulo">Cancelar</string>
+	<string name="dialog_alert_descarga_inicial_titulo">¡Error en la descarga inicial!</string>
+	
 	
 </resources>

@@ -1,6 +1,10 @@
 package com.notitarde.fragments;
 
 
+import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.Fields;
+import com.google.analytics.tracking.android.MapBuilder;
+import com.google.analytics.tracking.android.Tracker;
 import com.notitarde.lector.LeerActivity;
 import com.notitarde.lector.NoticiasAdapter;
 import com.notitarde.lector.NoticiasXmlPullParser;
@@ -21,11 +25,26 @@ import android.widget.ListView;
 public class DeportesFragment extends ListFragment {
 
 	NoticiasAdapter nAdapter;
+	private Tracker tracker;
 	
 	public DeportesFragment() {
 		// Required empty public constructor
 	}
 
+	//Implementación de Google Analytics - Inicializando actividad a restrear 
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {		
+		super.onActivityCreated(savedInstanceState);
+		this.tracker = EasyTracker.getInstance(getActivity());
+	}
+	//Implementación de Google Analytics - Finalizando restreo	
+	@Override
+	public void onResume() {		
+		super.onResume();
+		this.tracker.set(Fields.SCREEN_NAME, "Deportes");
+		this.tracker.send(MapBuilder.createAppView().build());
+	}
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -35,16 +54,17 @@ public class DeportesFragment extends ListFragment {
 	}
 	
 	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {		
-		super.onActivityCreated(savedInstanceState);
-			try {
-				nAdapter = new NoticiasAdapter(getActivity(), -1, NoticiasXmlPullParser.getNoticiasFromFile(getActivity().getBaseContext(),Global.XML_DEPORTES));
-				setListAdapter(nAdapter);
-				Log.d(Global.TAG,"Fragment Deportes - Adaptador inflado OK");
-			} catch (Exception e) {
-				Log.e(Global.TAG,"Fragment Deportes - Error al inflar adaptador "+e);
-			}			
-	}
+	public void onViewCreated(View view, Bundle savedInstanceState) {
+		super.onViewCreated(view, savedInstanceState);
+		try {
+			nAdapter = new NoticiasAdapter(getActivity(), -1, NoticiasXmlPullParser.getNoticiasFromFile(getActivity().getBaseContext(),Global.XML_DEPORTES));
+			setListAdapter(nAdapter);
+			Log.d(Global.TAG,"Fragment Deportes - Adaptador inflado OK");
+		} catch (Exception e) {
+			Log.e(Global.TAG,"Fragment Deportes - Error al inflar adaptador "+e);
+		}		
+			
+	}	
 	
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {		

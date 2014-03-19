@@ -33,34 +33,20 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 
-public class MainActivity extends ActionBarActivity implements ActionBar.TabListener, OnPageChangeListener, DialogRefreshFragment.FragmentComunicator{
+public class MainActivity extends ActionBarActivity implements ActionBar.TabListener, OnPageChangeListener, DialogRefreshFragment.FragmentComunicator, DialogRefreshAlertFragment.FragmentCommunicator{
 
 	private ViewPager mViewPager;	
 	private long lastPressedTime;
 	NoticiasAdapter nAdapter;
-	Global g;
+	Global g = new Global(getBaseContext());
 	Bundle b;
 	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		b = getIntent().getExtras();
-		boolean ofs = b.getBoolean("okFromSplashScreen");
-		boolean efs = b.getBoolean("exceptionFromSplashScreen");
-		Log.d(Global.TAG, "okFromSplash "+String.valueOf(b.getBoolean("okFromSplashScreen")));
-		Log.d(Global.TAG, "exceptionFromSplash "+String.valueOf(b.getBoolean("exceptionFromSplashScreen")));
-		if(ofs){			
-			AsyncPostDownload apd = new AsyncPostDownload();
-			apd.execute();			
-		}else{
-			if(efs){
-				DownloadAllXML dax = new DownloadAllXML();
-				dax.execute();
-			}
-				
-		}			
- 		setContentView(R.layout.swipe_tab);				
+ 		setContentView(R.layout.swipe_tab);		
+ 		
 		PagerAdapter pAdapter = new PagerAdapter(getSupportFragmentManager());
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(pAdapter);
@@ -77,7 +63,20 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 					.setTabListener(this);
 			ab.addTab(t);
 			Log.d(Global.TAG,"Tab "+s+" creado");
-		}		
+		}
+		
+		b = getIntent().getExtras();
+		boolean ofs = b.getBoolean("okFromSplashScreen");
+		boolean efs = b.getBoolean("exceptionFromSplashScreen");
+		Log.d(Global.TAG, "okFromSplash "+String.valueOf(b.getBoolean("okFromSplashScreen")));
+		Log.d(Global.TAG, "exceptionFromSplash "+String.valueOf(b.getBoolean("exceptionFromSplashScreen")));
+		if(ofs){
+			actualizarSegundaRondaXML();				
+		}else{
+			if(efs){				
+				actualizarAllXml();
+			}			
+		}			
 	}
 	
 
@@ -133,11 +132,19 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 	    return false;
 	}
 	
+	//Implementado desde la interfaz DialogRefreshFragment
 	@Override
 	public boolean updateAll(boolean flag) {
-		if(flag){
-			actualizarXml();
-		}
+		if(flag)
+			actualizarAllXml();		
+		return false;
+	}
+	
+	//Implementado desde la interfaz DialogRefreshAlertFragment
+	@Override
+	public boolean refresh(boolean flag) {
+		if(flag)
+			actualizarAllXml();
 		return false;
 	}
 	
@@ -146,17 +153,28 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 		startActivity(new Intent(this,PreferenciasActivity.class));		
 	}
 	
-	//Actualizar Archivos XML	
-	private void actualizarXml(){
-		g = new Global(getBaseContext());
-		if(g.conexionInternet()){
-			DownloadAllXML dax = new DownloadAllXML();
-			dax.execute();								
-		}
-		else{
+	//Actualizar todos los  Archivos XML	
+	private void actualizarAllXml(){	
+		Log.d(Global.TAG,"actualizarXml() ejecutandose ");
+		try {			
+				DownloadAllXML dax = new DownloadAllXML();
+				dax.execute();				
+		} catch (Exception ex) {
 			Toast.makeText(getBaseContext(), R.string.error_conexion_internet, Toast.LENGTH_SHORT).show();
+			Log.e(Global.TAG,"actualizarXml() " + ex.toString());
 		}
-
+	}
+	
+	//Actualizar segunda ronda de archivos XML
+	private void actualizarSegundaRondaXML(){	
+		Log.d(Global.TAG,"actualizarSegundaRondaXML() ejecutandose ");
+		try {						
+				AsyncPostDownload apd = new AsyncPostDownload();
+				apd.execute();		
+		} catch (Exception ex) {
+			Toast.makeText(getBaseContext(), R.string.error_conexion_internet, Toast.LENGTH_SHORT).show();
+			Log.e(Global.TAG,"actualizarSegundaRondaXml() " + ex.toString());
+		}
 	}
 
 	//	Adpatador de Páginas 
@@ -198,7 +216,6 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 		public int getCount() {
 			return 12;
 		}
-
 	}
 
 //	*** Métodos de Páginas ***
@@ -233,7 +250,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 	}
 	
 
-	//	AsyncTask para completar la carga de secciones
+	//	AsyncTask para completar la carga de secciones, Segunda Ronda 6 - 12
 	private class AsyncPostDownload extends AsyncTask<Void, Void, Void>{		
 		
 		@Override
@@ -246,20 +263,16 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 	//	AsyncTask actualizacion completa, todos los archivos XML
 	private class DownloadAllXML extends AsyncTask<Void, Void, Void>{
 		@Override
-		protected Void doInBackground(Void... params) {
-			Downloader.DownloadAllFiles(getApplicationContext(),0,12);
-			return null;
+		protected Void doInBackground(Void... params) {			
+			Downloader.DownloadAllFiles(getApplicationContext(),0,12);				
+			return null;			
 		}
 
 		@Override
 		protected void onPostExecute(Void result) {
 			Toast t = Toast.makeText(getBaseContext(), R.string.toast_actualizacion_completa, Toast.LENGTH_LONG);			
 			t.show();
-		}
-					
-	}
-
-	
-	
+		}				
+	}	
 
 }

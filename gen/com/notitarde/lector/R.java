@@ -811,6 +811,9 @@ containing a value of this type.
         public static final int abc_config_allowActionMenuItemTextWithIcon=0x7f070004;
         public static final int abc_config_showMenuShortcutsWhenKeyboardPresent=0x7f070003;
         public static final int abc_split_action_bar_is_narrow=0x7f070002;
+        public static final int ga_autoActivityTracking=0x7f070007;
+        public static final int ga_dryRun=0x7f070006;
+        public static final int ga_reportUncaughtExceptions=0x7f070008;
     }
     public static final class color {
         public static final int abc_search_url_text_holo=0x7f080003;
@@ -1125,6 +1128,7 @@ containing a value of this type.
          showAsAction="ifRoom" items can fit. "always" items can override this. 
          */
         public static final int abc_max_action_buttons=0x7f0a0000;
+        public static final int ga_dispatchPeriod=0x7f0a0001;
     }
     public static final class layout {
         public static final int abc_action_bar_decor=0x7f030000;
@@ -1217,57 +1221,63 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0b000b;
-        public static final int action_email=0x7f0b0013;
-        public static final int action_fuente=0x7f0b0012;
+        public static final int action_email=0x7f0b0018;
+        public static final int action_fuente=0x7f0b0017;
         /**  String Menú 
          */
-        public static final int action_settings=0x7f0b0010;
-        public static final int action_share=0x7f0b0011;
-        public static final int action_update=0x7f0b0014;
-        public static final int app_name=0x7f0b000f;
-        public static final int config_app_acerca=0x7f0b0022;
-        public static final int config_app_preferencias=0x7f0b0020;
-        public static final int config_app_tabs=0x7f0b0021;
+        public static final int action_settings=0x7f0b0015;
+        public static final int action_share=0x7f0b0016;
+        public static final int action_update=0x7f0b0019;
+        public static final int app_name=0x7f0b0014;
+        public static final int config_app_acerca=0x7f0b0027;
+        public static final int config_app_preferencias=0x7f0b0025;
+        public static final int config_app_tabs=0x7f0b0026;
         /**  String Configuraciones App 
          */
-        public static final int config_app_titulo=0x7f0b001e;
-        public static final int config_app_utilidades=0x7f0b001f;
-        public static final int config_prefs_letra_sumario=0x7f0b0026;
-        public static final int config_prefs_letra_titulo=0x7f0b0025;
-        public static final int config_prefs_tabs_sumario=0x7f0b0028;
-        public static final int config_prefs_tabs_titulo=0x7f0b0027;
-        public static final int config_util_sumario=0x7f0b0024;
-        public static final int config_util_titulo=0x7f0b0023;
-        public static final int dialog_refresh_mensaje=0x7f0b002f;
-        public static final int dialog_refresh_negative_button_titulo=0x7f0b0031;
-        public static final int dialog_refresh_positive_button_titulo=0x7f0b0030;
+        public static final int config_app_titulo=0x7f0b0023;
+        public static final int config_app_utilidades=0x7f0b0024;
+        public static final int config_prefs_letra_sumario=0x7f0b002b;
+        public static final int config_prefs_letra_titulo=0x7f0b002a;
+        public static final int config_prefs_tabs_sumario=0x7f0b002d;
+        public static final int config_prefs_tabs_titulo=0x7f0b002c;
+        public static final int config_util_sumario=0x7f0b0029;
+        public static final int config_util_titulo=0x7f0b0028;
+        public static final int dialog_alert_descarga_inicial_titulo=0x7f0b0037;
+        public static final int dialog_refresh_mensaje=0x7f0b0034;
+        public static final int dialog_refresh_negative_button_titulo=0x7f0b0036;
+        public static final int dialog_refresh_positive_button_titulo=0x7f0b0035;
         /**  Dialogs 
          */
-        public static final int dialog_refresh_titulo=0x7f0b002e;
-        public static final int email_enviado=0x7f0b001d;
-        public static final int email_mensaje=0x7f0b001c;
+        public static final int dialog_refresh_titulo=0x7f0b0033;
+        public static final int email_enviado=0x7f0b0022;
+        public static final int email_mensaje=0x7f0b0021;
         /**  String Enviar e-Mail 
          */
-        public static final int email_titulo_dialog=0x7f0b001b;
-        public static final int error_conexion_internet=0x7f0b000e;
-        public static final int error_fuente_tamano=0x7f0b000d;
-        public static final int imagenContent=0x7f0b0015;
-        public static final int nota_descripcion=0x7f0b0019;
-        public static final int nota_imagen=0x7f0b0018;
-        public static final int nota_info_compartir=0x7f0b001a;
-        public static final int nota_seccion=0x7f0b0017;
+        public static final int email_titulo_dialog=0x7f0b0020;
+        public static final int error_conexion_internet=0x7f0b0012;
+        public static final int error_descarga_inicial=0x7f0b0013;
+        public static final int error_fuente_tamano=0x7f0b0011;
+        public static final int ga_appName=0x7f0b000e;
+        public static final int ga_appVersion=0x7f0b000f;
+        public static final int ga_logLevel=0x7f0b0010;
+        public static final int ga_trackingId=0x7f0b000d;
+        public static final int imagenContent=0x7f0b001a;
+        public static final int nota_descripcion=0x7f0b001e;
+        public static final int nota_imagen=0x7f0b001d;
+        public static final int nota_info_compartir=0x7f0b001f;
+        public static final int nota_seccion=0x7f0b001c;
         /**  String Nota 
          */
-        public static final int nota_titulo=0x7f0b0016;
-        public static final int redes_sociales_facebook=0x7f0b002a;
-        public static final int redes_sociales_instagram=0x7f0b002b;
+        public static final int nota_titulo=0x7f0b001b;
+        public static final int redes_sociales_facebook=0x7f0b002f;
+        public static final int redes_sociales_instagram=0x7f0b0030;
         /**  Cuentas Redes Sociales 
          */
-        public static final int redes_sociales_twitter=0x7f0b0029;
+        public static final int redes_sociales_twitter=0x7f0b002e;
         /**  Notificaciones 
          */
-        public static final int toast_actualizacion_completa=0x7f0b002c;
-        public static final int toast_exit_menssage=0x7f0b002d;
+        public static final int toast_actualizacion_completa=0x7f0b0031;
+        public static final int toast_exit_menssage=0x7f0b0032;
     }
     public static final class style {
         /** 

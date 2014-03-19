@@ -1,6 +1,10 @@
 package com.notitarde.fragments;
 
 //import com.notitarde.lector.Downloader;
+import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.Fields;
+import com.google.analytics.tracking.android.MapBuilder;
+import com.google.analytics.tracking.android.Tracker;
 import com.notitarde.lector.LeerActivity;
 import com.notitarde.lector.NoticiasAdapter;
 import com.notitarde.lector.NoticiasXmlPullParser;
@@ -24,11 +28,26 @@ import android.widget.ListView;
 public class InternacionalFragment extends ListFragment {
 	
 	NoticiasAdapter nAdapter;
-	Global g;
+	private Tracker tracker;
 	
 	public InternacionalFragment() {
 		// Required empty public constructor
 	}
+	
+	//Implementación de Google Analytics - Inicializando actividad a restrear 
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {		
+		super.onActivityCreated(savedInstanceState);
+		this.tracker = EasyTracker.getInstance(getActivity());
+	}
+	//Implementación de Google Analytics - Finalizando restreo	
+	@Override
+	public void onResume() {		
+		super.onResume();
+		this.tracker.set(Fields.SCREEN_NAME, "Internacional");
+		this.tracker.send(MapBuilder.createAppView().build());
+	}
+	
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,28 +86,5 @@ public class InternacionalFragment extends ListFragment {
 		startActivity(i);
 		
 	}
-
-//	private class NoticiasDownloadTask extends AsyncTask<Void, Void, Void>
-//	{
-//		@Override
-//		protected Void doInBackground(Void... params) {
-//			try {
-//				Log.d(Global.TAG," Metodo doInBackgroud");
-//				Downloader.DownloadFromUrl(Global.URL+Global.XML_INTERNACIONAL, getActivity().openFileOutput(Global.XML_INTERNACIONAL, Context.MODE_PRIVATE));		
-//			} catch (Exception e) {
-//				Log.d(Global.TAG,"Excepcion doInBackground: " +e.toString());					
-//			}				
-//			return null;
-//		}
-//
-//		@Override
-//		protected void onPostExecute(Void result) {			
-//			nAdapter = new NoticiasAdapter(getActivity().getBaseContext(), -1, NoticiasXmlPullParser.getNoticiasFromFile(getActivity().getBaseContext(),Global.XML_INTERNACIONAL));
-//			setListAdapter(nAdapter);
-//			Log.d("Notitarde","Metodo onPOstExecute");
-//			
-//		}
-//				
-//	}
 
 }

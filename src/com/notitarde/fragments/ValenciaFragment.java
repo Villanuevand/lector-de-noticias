@@ -1,5 +1,9 @@
 package com.notitarde.fragments;
 
+import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.Fields;
+import com.google.analytics.tracking.android.MapBuilder;
+import com.google.analytics.tracking.android.Tracker;
 import com.notitarde.lector.LeerActivity;
 import com.notitarde.lector.NoticiasAdapter;
 import com.notitarde.lector.NoticiasXmlPullParser;
@@ -20,10 +24,26 @@ import android.widget.ListView;
 public class ValenciaFragment extends ListFragment {
 
 	private NoticiasAdapter nAdapter;
+	private Tracker	tracker;
 	
 	public ValenciaFragment() {
 		// Required empty public constructor
 	}
+
+	
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {		
+		super.onActivityCreated(savedInstanceState);
+		this.tracker = EasyTracker.getInstance(getActivity());
+	}
+		
+	@Override
+	public void onResume() {		
+		super.onResume();
+		this.tracker.set(Fields.SCREEN_NAME, "Valencia");
+		this.tracker.send(MapBuilder.createAppView().build());
+	}
+
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,

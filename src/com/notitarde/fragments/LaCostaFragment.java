@@ -1,6 +1,10 @@
 package com.notitarde.fragments;
 
 
+import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.Fields;
+import com.google.analytics.tracking.android.MapBuilder;
+import com.google.analytics.tracking.android.Tracker;
 import com.notitarde.lector.LeerActivity;
 import com.notitarde.lector.NoticiasAdapter;
 import com.notitarde.lector.NoticiasXmlPullParser;
@@ -21,11 +25,27 @@ import android.widget.ListView;
 public class LaCostaFragment extends ListFragment {
 
 	NoticiasAdapter nAdapter;
+	private Tracker tracker;
 	
 	public LaCostaFragment() {
 		// Required empty public constructor
 	}
 
+	
+	//Implementación de Google Analytics - Inicializando actividad a restrear 
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {		
+		super.onActivityCreated(savedInstanceState);
+		this.tracker = EasyTracker.getInstance(getActivity());
+	}
+	//Implementación de Google Analytics - Finalizando restreo	
+	@Override
+	public void onResume() {		
+		super.onResume();
+		this.tracker.set(Fields.SCREEN_NAME, "La Costa");
+		this.tracker.send(MapBuilder.createAppView().build());
+	}
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
