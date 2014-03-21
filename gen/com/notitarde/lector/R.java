@@ -1022,7 +1022,8 @@ containing a value of this type.
         public static final int ic_action_share=0x7f02005a;
         public static final int ic_imagen_precarga=0x7f02005b;
         public static final int ic_launcher=0x7f02005c;
-        public static final int splash_screen=0x7f02005d;
+        public static final int ic_notitarde=0x7f02005d;
+        public static final int splash_screen=0x7f02005e;
     }
     public static final class id {
         public static final int action_Notaemail=0x7f06004b;

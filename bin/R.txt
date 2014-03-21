@@ -254,7 +254,8 @@ int drawable ic_action_refresh 0x7f020059
 int drawable ic_action_share 0x7f02005a
 int drawable ic_imagen_precarga 0x7f02005b
 int drawable ic_launcher 0x7f02005c
-int drawable splash_screen 0x7f02005d
+int drawable ic_notitarde 0x7f02005d
+int drawable splash_screen 0x7f02005e
 int id action_Notaemail 0x7f06004b
 int id action_Notafuente 0x7f06004a
 int id action_Notashare 0x7f060049
